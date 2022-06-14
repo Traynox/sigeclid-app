@@ -13,6 +13,7 @@ import './index.css';
 import App from './App';
 import React from 'react';
 import ReactDOM from 'react-dom';
+<<<<<<< HEAD
 import '../src/styles/css/app.css'
 import '../src/styles/css/bootstrap.css'
 import '../src/styles/vendors/perfect-scrollbar/perfect-scrollbar.css'
@@ -24,6 +25,10 @@ import Sigleclid from './Sigleclid';
 
  ReactDOM.render(<Sigleclid />, document.getElementById('root'));
 
+=======
+import './index.css';
+import App from './App';
+>>>>>>> parent of 8b77fa1 (algunos npm)
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
