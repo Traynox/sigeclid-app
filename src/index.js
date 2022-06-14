@@ -11,13 +11,19 @@
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import '../src/styles/css/app.css'
+import '../src/styles/css/bootstrap.css'
+import '../src/styles/vendors/perfect-scrollbar/perfect-scrollbar.css'
+import '../src/styles/vendors/iconly/bold.css'
+import '../src/styles/vendors/perfect-scrollbar/perfect-scrollbar.css'
+import '../src/styles/vendors/bootstrap-icons/bootstrap-icons.css'
+import '../src/index.css'
+import Sigleclid from './Sigleclid';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
+ ReactDOM.render(<Sigleclid />, document.getElementById('root'));
 
-    <App />
- 
-);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
