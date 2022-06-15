@@ -12,7 +12,10 @@ export const DashboardRoutes = () => {
           {/* <Navbar /> */}
       
           <SideBar />
-          <div className="container all">
+          {/* Falta agregar el nav */}
+          
+          {/* <div className="container all"> */}
+          <section className="home">
           <Routes>
               <Route path="hola" element={<Hola />} />
               <Route path="hola2" element={<Hola2 />} />
@@ -23,7 +26,7 @@ export const DashboardRoutes = () => {
               <Route path="/" element={<Hola />} />
         </Routes>
   
-          </div>
+          </section>
   
       </>
     )

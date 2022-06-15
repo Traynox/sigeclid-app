@@ -9,6 +9,10 @@ const initialState = {
     search: {
         texto: ''
     },
+
+    mode:{
+        dark: false
+    }
 }
 
 export const uiReducer = (state = initialState, action) => {
@@ -32,6 +36,13 @@ export const uiReducer = (state = initialState, action) => {
             return {
                 ...state,
                 search: action.payload
+            }
+
+            case types.setMode:
+
+            return {
+                ...state,
+                mode: action.payload
             }
         default:
             return state;

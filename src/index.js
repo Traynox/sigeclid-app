@@ -5,7 +5,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import '../src/index.css'
+// import App from './App';
 import Sigleclid from './Sigleclid';
+
 
  ReactDOM.render(<Sigleclid />, document.getElementById('root'));
 
