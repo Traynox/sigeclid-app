@@ -102,7 +102,7 @@ export const SideBar = () => {
 
             <div className="bottom-content">
                 <li className="">
-                    <a href="#">
+                    <a href="hhj">
                         <i className='bx bx-log-out icon' ></i>
                         <span className="text nav-text">Logout</span>
                     </a>

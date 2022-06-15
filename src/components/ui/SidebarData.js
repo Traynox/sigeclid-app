@@ -9,7 +9,7 @@ import React from "react";
 export const SiderbarData = [ 
 {
     title: "Pacientes",
-    path: "/hola",
+    path: "/pacientes",
     icon: <i className='bx bx-id-card icon'></i>,
     cName: "nav-link"
 },
