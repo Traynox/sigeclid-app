@@ -1,24 +1,9 @@
-// import React from 'react';
-// import ReactDOM from 'react-dom';
-// import { App } from './App';
 
 
-// ReactDOM.render(
-//     <App />,
-//     document.getElementById('root')
-// );
 
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
-import '../src/styles/css/app.css'
-import '../src/styles/css/bootstrap.css'
-import '../src/styles/vendors/perfect-scrollbar/perfect-scrollbar.css'
-import '../src/styles/vendors/iconly/bold.css'
-import '../src/styles/vendors/perfect-scrollbar/perfect-scrollbar.css'
-import '../src/styles/vendors/bootstrap-icons/bootstrap-icons.css'
 import '../src/index.css'
 import Sigleclid from './Sigleclid';
 
