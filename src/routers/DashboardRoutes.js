@@ -1,9 +1,12 @@
 
 import React from "react";
 import { Routes, Route  } from "react-router-dom"
+import { ExpedientesScreen } from "../components/expedientes/ExpedientesScreen";
+import { PacientesScreen } from "../components/pacientes/PacientesScreen";
+import { PagosScreen } from "../components/pagos/PagosScreen";
+import { TratamientosScreen } from "../components/tratamientos/TratamientosScreen";
 
-import { Hola } from "../components/ui/Hola"
-import { Hola2 } from "../components/ui/Hola2" 
+
 import { SideBar } from "../components/ui/SideBar";
 
 export const DashboardRoutes = () => {
@@ -17,13 +20,15 @@ export const DashboardRoutes = () => {
           {/* <div className="container all"> */}
           <section className="home">
           <Routes>
-              <Route path="hola" element={<Hola />} />
-              <Route path="hola2" element={<Hola2 />} />
+              <Route path="tratamientos" element={<TratamientosScreen />} />
+              <Route path="pacientes" element={<PacientesScreen />} />
+              <Route path="pagos" element={<PagosScreen />} />
+              <Route path="expedientes" element={<ExpedientesScreen />} />
              
   
               {/* <Route path="search" element={<SearchScreen />} /> */}
               {/* <Route path="hero/:heroeId" element={<HeroScreen />} /> */}
-              <Route path="/" element={<Hola />} />
+              <Route path="/" element={<TratamientosScreen />} />
         </Routes>
   
           </section>
