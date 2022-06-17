@@ -1,6 +1,5 @@
 .pacientes {
     height: 100%;
-    text-transform: uppercase;
     background-color: rgb(243, 243, 243);
 }
 
@@ -8,56 +7,146 @@
     padding: 12px 60px;
 }
 
+.paciente__new {
+    border-radius: 10px;
+    padding: 40px 30px;
+    box-shadow: 1px 1px 10px rgba(18, 3, 46, 0.392), -1px -1px 10px rgba(18, 3, 46, 0.392)
+}
+
+.paciente__header {
+    margin-bottom: 20px;
+    color: var(--text-color);
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
 .paciente__form {
     display: grid;
     grid-template-areas:
-        "nombre apellido_uno apellido_dos"
-        "sexo telefono edad"
-        "direccion correo guardar"
-        ". . cancelar";
+        "cedula nombre apellido_uno"
+        "apellido_dos sexo telefono"
+        "edad direccion correo"
+        ". limpiar guardar";
     gap: 10px;
 }
 
 .paciente__campo {
     max-width: 20rem;
     max-height: 5rem;
-    background-color: blueviolet;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     flex-direction: column;
+    margin-bottom: 20px;
 }
-.paciente__campo input{
+
+.paciente__campo input {
     padding: 10px 5px;
+    height: 100%;
+    width: 100%;
+    outline: none;
+    border: none;
+    background-color: inherit;
+    color: var(--text-color);
+    border-bottom: 0.5px solid rgba(70, 35, 102, 0.389);
+    font-size: 17px;
+    font-weight: 300;
 }
+
+.paciente__campo label {
+    font-size: 17px;
+    font-weight: 300;
+    white-space: nowrap;
+    opacity: 1;
+    color: var(--text-color);
+}
+
+/* Botones de añadir paciente */
+
+.paciente__boton {
+    background-color: #27ae60;
+    box-shadow: rgba(39, 174, 96, .15) 0 4px 9px;
+    border-radius: 4px;
+    border: 0;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inherit;
+    font-family: "Space Grotesk", -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 24px;
+    margin: 0;
+    min-height: 56px;
+    max-width: 20rem;
+    padding: 16px 20px;
+    position: relative;
+    text-align: center;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: baseline;
+    transition: all .2s cubic-bezier(.22, .61, .36, 1);
+}
+.paciente__boton:hover {
+    background-color: #1e8449;
+    transform: translateY(-2px);
+}
+.campo__10:hover{
+   background-color: #84731e;
+   transform: translateY(-2px);
+}
+
+@media (min-width: 768px) {
+    .paciente__boton {
+        padding: 16px 44px;
+        min-width: 150px;
+    }
+}
+
 .campo__1 {
-    grid-area: nombre;
+    grid-area: cedula;
 }
 
 .campo__2 {
-    grid-area: apellido_uno;
+    grid-area: nombre;
 }
 
 .campo__3 {
-    grid-area: apellido_dos;
+    grid-area: apellido_uno;
 }
 
 .campo__4 {
-    grid-area: sexo;
+    grid-area: apellido_dos;
 }
 
 .campo__5 {
-    grid-area: telefono;
+    grid-area: sexo;
 }
 
 .campo__6 {
-    grid-area: edad;
+    grid-area: telefono;
 }
 
 .campo__7 {
-    grid-area: correo;
+    grid-area: edad;
 }
 
 .campo__8 {
+    grid-area: correo;
+}
+
+.campo__9 {
     grid-area: direccion;
+}
+
+.campo__10 {
+    grid-area: limpiar;
+    /* background-color: rgb(13, 67, 13); */
+    background-color: #ae7a27;
+    box-shadow: rgba(174, 136, 39, 0.15) 0 4px 9px;
+}
+
+.campo__11 {
+    grid-area: guardar;
 }
