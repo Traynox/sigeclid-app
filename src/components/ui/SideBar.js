@@ -15,6 +15,8 @@ export const SideBar = () => {
         setIsToggle(!isToggle);
     }
 
+ 
+
   return (
     <>
     <nav className={`sidebar ${isToggle ? 'close' : ""}`}>
@@ -45,7 +47,7 @@ export const SideBar = () => {
 
                 {SiderbarData.map((item, index) => {
                 return (
-                <li key={index} className={item.cName}>
+                <li key={index} className={`${item.cName} ` } >
                     <Link to={item.path} className="nav-link">
                     {item.icon}
                     <span className="text nav-text" 
