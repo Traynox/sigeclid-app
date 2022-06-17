@@ -1,0 +1,63 @@
+.pacientes {
+    height: 100%;
+    text-transform: uppercase;
+    background-color: rgb(243, 243, 243);
+}
+
+.pacientes__body {
+    padding: 12px 60px;
+}
+
+.paciente__form {
+    display: grid;
+    grid-template-areas:
+        "nombre apellido_uno apellido_dos"
+        "sexo telefono edad"
+        "direccion correo guardar"
+        ". . cancelar";
+    gap: 10px;
+}
+
+.paciente__campo {
+    max-width: 20rem;
+    max-height: 5rem;
+    background-color: blueviolet;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.paciente__campo input{
+    padding: 10px 5px;
+}
+.campo__1 {
+    grid-area: nombre;
+}
+
+.campo__2 {
+    grid-area: apellido_uno;
+}
+
+.campo__3 {
+    grid-area: apellido_dos;
+}
+
+.campo__4 {
+    grid-area: sexo;
+}
+
+.campo__5 {
+    grid-area: telefono;
+}
+
+.campo__6 {
+    grid-area: edad;
+}
+
+.campo__7 {
+    grid-area: correo;
+}
+
+.campo__8 {
+    grid-area: direccion;
+}
