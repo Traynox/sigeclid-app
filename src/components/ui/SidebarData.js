@@ -7,6 +7,12 @@ import React from "react";
 
 
 export const SiderbarData = [ 
+    {
+        title: "Citas",
+        path: "/citas",
+        icon: <i className='bx bx-calendar icon'></i>,
+        cName: "nav-link"
+    },
 {
     title: "Pacientes",
     path: "/pacientes",
@@ -14,12 +20,7 @@ export const SiderbarData = [
     cName: "nav-link"
 },
 
-{
-    title: "Expedientes",
-    path: "/expedientes",
-    icon: <i className='bx bx-task icon'></i>,
-    cName: "nav-link"
-},
+
 
 {
     title: "Tratamientos",
@@ -35,7 +36,23 @@ export const SiderbarData = [
     cName: "nav-link"
 },
 
+{
+    title: "Empleados",
+    path: "/empleados",
+    icon: <i className='bx bx-group icon'></i>,
+    cName: "nav-link"
+},
+{
+    title: "Usuarios",
+    path: "/usuarios",
+    icon: <i className='bx bx-user-circle icon'></i>,
+    cName: "nav-link"
+},
 
-
-
+{
+    title: "Configuración",
+    path: "/configuracion",
+    icon: <i className='bx bx-wrench icon'></i>,
+    cName: "nav-link"
+},
 ];

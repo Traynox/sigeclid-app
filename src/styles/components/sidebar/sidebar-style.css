@@ -12,6 +12,7 @@
     --body-color: #E4E9F7;
     --sidebar-color: #FFF;
     --primary-color: #695CFE;
+    --secondary-color: #5ccdfe68;
     --primary-color-light: #F6F5FF;
     --toggle-color: #DDD;
     --text-color: #707070;
@@ -99,6 +100,8 @@ body.dark{
 .sidebar.close .text{
     opacity: 0;
 }
+
+
 /* =========================== */
 
 .sidebar header{
@@ -198,6 +201,10 @@ body.dark .sidebar header .toggle{
     transition: var(--tran-03);
 }
 
+.cambia{
+    background-color: var(--secondary-color);
+}
+
 .sidebar li a:hover{
     background-color: var(--primary-color);
 }
@@ -293,8 +300,8 @@ body.dark .switch::before{
     transition: var(--tran-05);
 }
 .home .text{
-    font-size: 30px;
-    font-weight: 500;
+    /* font-size: 30px; */
+    /* font-weight: 500; */
     color: var(--text-color);
     padding: 12px 60px;
 }
