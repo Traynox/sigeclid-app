@@ -10,3 +10,12 @@ export const setMode = (mode) => {
     }
   
   }
+
+  export const setModal = (modal) => {
+
+    return {
+      type: types.modalStore,
+      payload: modal,
+    }
+  
+  }
