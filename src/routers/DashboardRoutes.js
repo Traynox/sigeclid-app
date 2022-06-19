@@ -5,7 +5,7 @@ import { ExpedientesScreen } from "../components/expedientes/ExpedientesScreen";
 import { PacientesScreen } from "../components/pacientes/PacientesScreen";
 import { PagosScreen } from "../components/pagos/PagosScreen";
 import { TratamientosScreen } from "../components/tratamientos/TratamientosScreen";
-
+import { ConfigScreen } from "../components/configuración/ConfigScreen";
 
 import { SideBar } from "../components/ui/SideBar";
 
@@ -24,7 +24,7 @@ export const DashboardRoutes = () => {
               <Route path="pacientes" element={<PacientesScreen />} />
               <Route path="pagos" element={<PagosScreen />} />
               <Route path="expedientes" element={<ExpedientesScreen />} />
-             
+              <Route path="configuracion" element={<ConfigScreen />} />
   
               {/* <Route path="search" element={<SearchScreen />} /> */}
               {/* <Route path="hero/:heroeId" element={<HeroScreen />} /> */}
