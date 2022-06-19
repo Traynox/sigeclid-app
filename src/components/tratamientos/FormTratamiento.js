@@ -6,34 +6,34 @@ export const FormTratamiento = () => {
 
   return (
     <>
-      <div className="container ">
-        <form className="form-group p-4">
-          <div className="form-row">
-            <div className="input-data">
+      <div className="container__tratamiento">
+        <form className="form-group p-4 tratamiento__form">
+          {/* <div className="form-row"> */}
+            <div className="input-data tratamiento__campo tratamiento__campo-1">
               <input
+              className="input__tratamiento descripcion"
                 type="text"
                 name="descripcion"
-                value="descripcion"
                 required
                 autoComplete="off"
               />
               <div className="underline"></div>
               <label>Descripcion</label>
             </div>
-          </div>
-          <div className="form-row">
-            <div className="input-data">
+          {/* </div> */}
+          {/* <div className="form-row"> */}
+            <div className="input-data tratamiento__campo tratamiento__campo-2">
               <input
+                className="input__tratamiento monto"
                 type="number"
                 name="monto"
-                value="1"
                 required
                 autoComplete="off"
               />
               <div className="underline"></div>
               <label>Monto</label>
             </div>
-          </div>
+          {/* </div> */}
 
 
 
@@ -43,7 +43,9 @@ export const FormTratamiento = () => {
           <div className="d-flex justify-content-center ">
             <div className="col-md-6 d-flex justify-content-center ">
             {modal.tipo === "Agregar" ? (
-                    <button type="submit" className="btn btn-modal btn-success">
+                    <button type="submit" className="btn btn-modal tratamiento__campo-3 tratamiento__boton"
+                    data-bs-dismiss="modal"
+                    >
                 Guardar
                   </button>
                
@@ -52,8 +54,8 @@ export const FormTratamiento = () => {
                  
               <button
                 type="submit"
-                className="btn btn-modal btn-success"
-                data-bs-dismiss="modal"
+                className="btn btn-modal tratamiento__campo-3 tratamiento__boton"
+                
               >
                 Actualizar
                 </button>
@@ -63,7 +65,7 @@ export const FormTratamiento = () => {
 
             <button
               type="button"
-              className="btn btn-modal btn-danger "
+              className="btn btn-modal tratamiento__campo-4 tratamiento__boton"
               data-bs-dismiss="modal"
             >
               Cerrar
