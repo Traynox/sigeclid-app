@@ -48,7 +48,7 @@ export const SideBar = () => {
                 {SiderbarData.map((item, index) => {
                 return (
                 <li key={index} className={`${item.cName} ` } >
-                    <Link to={item.path} className="nav-link-">
+                    <Link to={item.path} >
                     {item.icon}
                     <span className="text nav-text" 
                     >{item.title}</span>
