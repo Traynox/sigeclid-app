@@ -2,9 +2,9 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { setModal } from "../../actions/ui";
 import { Modal } from "../ui/Modal";
-import "../../styles/components/tratamientos/tratamientos-style.css";
 import { TableTratamientos } from "./TableTratamientos";
 import { SearchBar } from "../ui/SearchBar";
+import "../../styles/components/tratamientos/tratamientos-style.css";
 
 export const TratamientosScreen = () => {
   const dispatch = useDispatch();

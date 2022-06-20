@@ -1,14 +1,20 @@
 import React from 'react'
 import { InfoForm } from './forms/InfoForm'
+import { AvatarForm } from './forms/AvatarForm'
 export const ConfigScreen = () => {
     return (
         <>
-            <div class="d-flex justify-content-between ">
-                <h1>Configuración</h1>
-               
+            <div className="d-flex justify-content-between ">
+                <h1 className='m-4'>Configuración</h1>
+
             </div>
             <div className='container'>
-                <InfoForm />
+                <div className="row match-height jus">
+                    <div className="col-md-12 col-sm-12">
+                        <AvatarForm />
+                        <InfoForm />
+                    </div>
+                </div>
             </div>
         </>
     )
