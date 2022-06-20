@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { devuelveForm } from '../../helpers/devuelveForm';
-import "../../styles/components/modal/modal.css";
+// import "../../styles/components/modal/modal.css";
 
-import PropTypes from 'prop-types';
+
 import { useSelector } from 'react-redux';
 export const Modal = () => {
   // export const Modal = ({tipo,nombre}) => {

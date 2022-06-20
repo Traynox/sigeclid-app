@@ -38,10 +38,10 @@ export const SideBar = () => {
         <div className="menu-bar">
             <div className="menu">
 
-                <li className="search-box" >
+                {/* <li className="search-box" >
                     <i className='bx bx-search icon' onClick={handleToggle}></i>
                     <input type="text" placeholder="Search..." />
-                </li>
+                </li> */}
 
                 <ul className="menu-links">
 

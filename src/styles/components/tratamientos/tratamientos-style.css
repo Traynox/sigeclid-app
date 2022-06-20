@@ -1,4 +1,8 @@
+.prueba{
+  position: relative;
 
+  z-index: 90;
+}
 .tratamiento__form {
   display: grid;
   grid-template-areas:
@@ -90,4 +94,17 @@
   grid-area: cerrar;
   background-color: #ae7a27;
   box-shadow: rgba(174, 136, 39, 0.15) 0 4px 9px;
+}
+
+.acciones li a:hover{
+  background-color: var(--primary-color);
+  color: #fff;
+}
+
+.acciones li {
+  color: var(--text-color)
+}
+
+.dropdown-item {
+color: var(--text-color);
 }

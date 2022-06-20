@@ -11,6 +11,14 @@ export const setMode = (mode) => {
   
   }
 
+  export const setSearch = (search) => {
+
+    return {
+      type: types.setSearch,
+      payload: search,
+    }
+    }
+
   export const setModal = (modal) => {
 
     return {
