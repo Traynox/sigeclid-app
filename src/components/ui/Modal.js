@@ -1,6 +1,8 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { devuelveForm } from '../../helpers/devuelveForm';
-import PropTypes from 'prop-types';
+// import "../../styles/components/modal/modal.css";
+
+
 import { useSelector } from 'react-redux';
 export const Modal = () => {
   // export const Modal = ({tipo,nombre}) => {
@@ -15,7 +17,7 @@ export const Modal = () => {
 
           <div className="modal-content">
 
-            <div className="modal-header text-center modal_header alert-primary">
+            <div className="modal-header text-center modal_header ">
               <h4 className="modal-title w-100 font-weight-bold py-2">{modal.tipo} {modal.nombre}</h4>
               {/* <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>    */}
             </div>

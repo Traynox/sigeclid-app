@@ -1,8 +1,8 @@
 
 import React from "react";
-import { Routes, Route  } from "react-router-dom"
+import { Routes, Route } from "react-router-dom"
 import { ExpedientesScreen } from "../components/expedientes/ExpedientesScreen";
-import { PacientesScreen } from "../components/pacientes/PacientesScreen";
+import PacientesScreen from "../components/pacientes/PacientesScreen";
 import { PagosScreen } from "../components/pagos/PagosScreen";
 import { TratamientosScreen } from "../components/tratamientos/TratamientosScreen";
 import { ConfigScreen } from "../components/configuración/ConfigScreen";
@@ -31,10 +31,9 @@ export const DashboardRoutes = () => {
               {/* <Route path="hero/:heroeId" element={<HeroScreen />} /> */}
               <Route path="/" element={<TratamientosScreen />} />
         </Routes>
-  
-          </section>
-  
-      </>
-    )
-  }
-  
+
+      </section>
+
+    </>
+  )
+}
