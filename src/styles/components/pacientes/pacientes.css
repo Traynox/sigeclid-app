@@ -10,14 +10,20 @@
 .paciente__new {
     border-radius: 10px;
     padding: 40px 30px;
-    box-shadow: 1px 1px 10px rgba(18, 3, 46, 0.392), -1px -1px 10px rgba(18, 3, 46, 0.392)
 }
 
 .paciente__header {
     margin-bottom: 20px;
-    color: var(--text-color);
     font-weight: 700;
     letter-spacing: 2px;
+}
+
+.paciente__header h2 {
+    color: inherit;
+}
+
+.pacientes__titulo {
+    color: var(--text-color);
 }
 
 .paciente__form {
@@ -88,13 +94,15 @@
     vertical-align: baseline;
     transition: all .2s cubic-bezier(.22, .61, .36, 1);
 }
+
 .paciente__boton:hover {
     background-color: #1e8449;
     transform: translateY(-2px);
 }
-.campo__10:hover{
-   background-color: #84731e;
-   transform: translateY(-2px);
+
+.campo__10:hover {
+    background-color: #84731e;
+    transform: translateY(-2px);
 }
 
 @media (min-width: 768px) {
@@ -149,4 +157,8 @@
 
 .campo__11 {
     grid-area: guardar;
+}
+.dropdown-menu{
+    z-index: 1000;
+   position: relative;
 }
