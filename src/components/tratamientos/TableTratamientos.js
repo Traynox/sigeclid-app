@@ -62,7 +62,7 @@ export const TableTratamientos = () => {
                     </li>
                   </ul>
                 </div>
-                <button type="submit" class="btn btn-md"><i
+                <button type="submit" className="btn btn-md"><i
                   className="fas fa-trash-alt text-danger"></i></button>
 
               </td>

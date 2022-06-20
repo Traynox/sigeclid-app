@@ -13,14 +13,17 @@ export const Modal = () => {
 
       <div className="modal fade" id='modalE' tabIndex="-1" role="dialog" aria-labelledby="myModalLabel"
         aria-hidden="true">
-        <div className="modal-dialog modal-md modal-dialog-centered" role="document">
+        <div className="modal-dialog modal-lg modal-dialog-centered" role="document">
 
           <div className="modal-content">
-
+          {
+          modal.nombre !== 'paciente'
+          &&
             <div className="modal-header text-center modal_header ">
               <h4 className="modal-title w-100 font-weight-bold py-2">{modal.tipo} {modal.nombre}</h4>
               {/* <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>    */}
             </div>
+          }
 
              <div className="modal-body"> 
 

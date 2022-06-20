@@ -1,10 +1,12 @@
 import React from 'react'
+import { useSelector } from 'react-redux';
 
 const PacientesAddNew = () => {
+    const { modal } = useSelector((state) => state.ui);
     return (
         <div className='paciente__new'>
             <div className="paciente__header">
-                <h2>Nuevo Paciente</h2>
+                <h2>{modal.tipo} {modal.nombre}</h2>
             </div>
             <form action="" className='paciente__form'>
                 <div className="paciente__campo campo__1">
@@ -43,7 +45,7 @@ const PacientesAddNew = () => {
                     <label >Direccion</label>
                     <input type="text" className='input__paciente direcion' />
                 </div>
-                
+
                 <button type="button" className='paciente__boton campo__10'>Limpiar</button>
                 <button type="submit" className='paciente__boton campo__11'>Guardar</button>
 

@@ -1,4 +1,5 @@
 
+import PacientesAddNew from '../components/pacientes/PacientesAddNew';
 import { FormTratamiento } from '../components/tratamientos/FormTratamiento';
 
 export const devuelveForm = (nombre) => {
@@ -7,7 +8,9 @@ export const devuelveForm = (nombre) => {
         case 'tratamiento':
 
             return (<FormTratamiento />)
+        case 'paciente':
 
+            return (<PacientesAddNew />)
         
         
         default:
