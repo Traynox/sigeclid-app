@@ -1,13 +1,13 @@
-import React, { useEffect } from "react";
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
+import React from "react";
+// import { useSelector } from "react-redux";
+// import { useDispatch } from "react-redux";
 // import { useForm } from "../../hooks/useForm";
 // import { setSearch } from "../../actions/searchBar";
 import "../../styles/components/search_bar/search_bar.css";
 
 
 export const SearchBar = () => {
-  const { search } = useSelector((state) => state.ui);
+  // const { search } = useSelector((state) => state.ui);
 
   // const { current_page } = useSelector((state) => state.allClientes.clientes);
   // const [formValues, handleInputChange, reset] = useForm(search);
