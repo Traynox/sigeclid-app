@@ -1,0 +1,121 @@
+
+  .empleado__form {
+    display: grid;
+
+    grid-template-areas:
+        "nombre cedula telefono"
+        "direccion direccion ocupacion"
+        ". guardar cerrar";
+    gap: 10px;
+  }
+  
+  .empleado__campo {
+    /* max-width: 20xrem; */
+    max-height: 5rem;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+  
+  .empleado__campo input {
+    padding: 10px 5px;
+    height: 100%;
+    width: 100%;
+    outline: none;
+    border: none;
+    background-color: inherit;
+    color: var(--text-color);
+    border-bottom: 0.5px solid rgba(70, 35, 102, 0.389);
+    font-size: 17px;
+    font-weight: 300;
+  }
+  
+  .empleado__campo label {
+    font-size: 17px;
+    font-weight: 300;
+    white-space: nowrap;
+    opacity: 1;
+    color: var(--text-color);
+  }
+
+  
+  /* Botones de añadir empleado */
+  
+  .empleado__boton {
+    background-color: #27ae60;
+    box-shadow: rgba(39, 174, 96, .15) 0 4px 9px;
+    border-radius: 4px;
+    border: 0;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inherit;
+    font-family: "Space Grotesk", -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 24px;
+    margin: 0;
+    min-height: 56px;
+    max-width: 20rem;
+    padding: 16px 20px;
+    position: relative;
+    text-align: center;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: baseline;
+    transition: all .2s cubic-bezier(.22, .61, .36, 1);
+  }
+  .empleado__boton:hover {
+    background-color: #1e8449;
+    transform: translateY(-2px);
+  }
+  .empleado__campo-8:hover{
+   background-color: #84731e;
+   transform: translateY(-2px);
+  }
+  
+  .empleado__campo-1 {
+    grid-area: nombre;
+  }
+  
+  .empleado__campo-2 {
+    grid-area: cedula;
+  }
+  
+  .empleado__campo-3 {
+    grid-area: telefono;
+  }
+
+  .empleado__campo-4 {
+    grid-area: direccion;
+  }
+  .empleado__campo-5 {
+    grid-area: ocupacion;
+  }
+
+  .empleado__campo-7 {
+    grid-area: guardar;
+  }
+  
+  .empleado__campo-8 {
+    grid-area: cerrar;
+    background-color: #ae7a27;
+    box-shadow: rgba(174, 136, 39, 0.15) 0 4px 9px;
+    color: #fff;
+  }
+  
+  .acciones li a:hover{
+    background-color: var(--primary-color);
+    color: #fff;
+  }
+  
+  .acciones li {
+    color: var(--text-color)
+  }
+  
+  .dropdown-item {
+  color: var(--text-color);
+  }

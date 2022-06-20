@@ -8,6 +8,7 @@ import { TratamientosScreen } from "../components/tratamientos/TratamientosScree
 import { ConfigScreen } from "../components/configuración/ConfigScreen";
 
 import { SideBar } from "../components/ui/SideBar";
+import { EmpleadosScreen } from "../components/empleados/EmpleadosScreen";
 
 export const DashboardRoutes = () => {
     return (
@@ -22,6 +23,7 @@ export const DashboardRoutes = () => {
           <Routes>
               <Route path="tratamientos" element={<TratamientosScreen />} />
               <Route path="pacientes" element={<PacientesScreen />} />
+              <Route path="empleados" element={<EmpleadosScreen />} />
               <Route path="pagos" element={<PagosScreen />} />
               <Route path="expedientes" element={<ExpedientesScreen />} />
               <Route path="configuracion" element={<ConfigScreen />} />

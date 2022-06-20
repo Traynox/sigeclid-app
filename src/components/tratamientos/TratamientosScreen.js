@@ -25,7 +25,7 @@ export const TratamientosScreen = () => {
       
       <div className="card">
         <div className="card-body">
-          <div className="row">
+          <div className="row boton_more_search">
             {/* <div className="col-md-12 pb-2 pt-2"> */}
             <div className="col-6 d-flex justify-content-start pb-4">
               <button

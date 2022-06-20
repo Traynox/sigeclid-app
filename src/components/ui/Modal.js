@@ -13,7 +13,7 @@ export const Modal = () => {
 
       <div className="modal fade" id='modalE' tabIndex="-1" role="dialog" aria-labelledby="myModalLabel"
         aria-hidden="true">
-        <div className="modal-dialog modal-md modal-dialog-centered" role="document">
+        <div className="modal-dialog modal-lg modal-dialog-centered" role="document">
 
           <div className="modal-content">
 

@@ -45,11 +45,6 @@ export const uiReducer = (state = initialState, action) => {
                 mode: action.payload
             }
 
-            case types.setSearch:
-                return {
-                  ...state,
-                  search: action.payload,
-                }
 
         default:
             return state;
