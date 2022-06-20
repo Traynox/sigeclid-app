@@ -32,7 +32,8 @@ export const TableTratamientos = () => {
       
                   </a>
 
-                  <ul className="dropdown-menu ">
+                  <ul className="dropdown-menu z-index-5
+                      ">
                     <li>
                       <a
                         // data-toggle="modal"
@@ -62,7 +63,7 @@ export const TableTratamientos = () => {
                     </li>
                   </ul>
                 </div>
-                <button type="submit" class="btn btn-md"><i
+                <button type="submit" className="btn btn-md"><i
                   className="fas fa-trash-alt text-danger"></i></button>
 
               </td>

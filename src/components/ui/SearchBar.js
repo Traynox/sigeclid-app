@@ -47,7 +47,7 @@ export const SearchBar = () => {
 
   return (
     <>
-      <div className="d-flex justify-content-center ps-4 pb-3">
+      <div className="d-flex justify-content-center ps-4 pb-3 z-index-3">
         <div className="search">
           <form 
           // onSubmit={handleSubmit}

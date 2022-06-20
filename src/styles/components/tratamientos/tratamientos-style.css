@@ -1,15 +1,12 @@
-.prueba{
-  position: relative;
 
-  z-index: 90;
-}
 .tratamiento__form {
   display: grid;
   grid-template-areas:
       "descripcion monto"
-      "guardar cerrar";
+      "botones botones";
   gap: 10px;
 }
+
 
 .tratamiento__campo {
   max-width: 20rem;
@@ -94,6 +91,10 @@
   grid-area: cerrar;
   background-color: #ae7a27;
   box-shadow: rgba(174, 136, 39, 0.15) 0 4px 9px;
+}
+
+.campo__botones{
+  grid-area: botones;
 }
 
 .acciones li a:hover{

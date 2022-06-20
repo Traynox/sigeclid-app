@@ -40,10 +40,10 @@ export const FormTratamiento = () => {
             <div className="row">
 
             
-          <div className="d-flex justify-content-center ">
-            <div className="col-md-6 d-flex justify-content-center ">
+          <div className="d-flex justify-content-center campo__botones ">
+            <div className="col-md-6 ">
             {modal.tipo === "Agregar" ? (
-                    <button type="submit" className="btn btn-modal tratamiento__campo-3 tratamiento__boton"
+                    <button type="submit" className="tratamiento__campo-3 tratamiento__boton"
                     data-bs-dismiss="modal"
                     >
                 Guardar
@@ -54,18 +54,18 @@ export const FormTratamiento = () => {
                  
               <button
                 type="submit"
-                className="btn btn-modal tratamiento__campo-3 tratamiento__boton"
+                className="tratamiento__campo-3 tratamiento__boton"
                 
               >
                 Actualizar
                 </button>
             )}
             </div>
-            <div className="col-md-6 d-flex justify-content-center">
+            <div className="col-md-6">
 
             <button
               type="button"
-              className="btn btn-modal tratamiento__campo-4 tratamiento__boton"
+              className="tratamiento__campo-4 tratamiento__boton"
               data-bs-dismiss="modal"
             >
               Cerrar
