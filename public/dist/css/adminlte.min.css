@@ -14366,7 +14366,8 @@ body:not(.layout-fixed) .main-sidebar .sidebar {
 }
 
 [class*=sidebar-dark-] .sidebar a {
-    color: #c2c7d0
+    color: #435ebe
+
 }
 
 [class*=sidebar-dark-] .sidebar a:focus,
@@ -14375,13 +14376,15 @@ body:not(.layout-fixed) .main-sidebar .sidebar {
 }
 
 [class*=sidebar-dark-] .nav-treeview>.nav-item>.nav-link {
-    color: #c2c7d0
+    color: #8f8f8f
 }
 
 [class*=sidebar-dark-] .nav-treeview>.nav-item>.nav-link:focus,
 [class*=sidebar-dark-] .nav-treeview>.nav-item>.nav-link:hover {
-    background-color: rgba(255, 255, 255, .1);
-    color: #fff
+    background-color: rgba(79, 79, 79, .1);
+    /* background-color: rgba(255, 255, 255, .1); */
+    color: #4f4f4f
+
 }
 
 [class*=sidebar-dark-] .nav-treeview>.nav-item>.nav-link.active,
