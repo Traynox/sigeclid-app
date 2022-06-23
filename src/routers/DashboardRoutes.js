@@ -11,7 +11,6 @@ import { SideBar } from "../components/ui/SideBar";
 import { EmpleadosScreen } from "../components/empleados/EmpleadosScreen";
 import { Menu } from "../components-prueba/Menu";
 import { Header } from "../components-prueba/Header";
-import { Content } from "../components-prueba/Content";
 import { Footer } from "../components-prueba/Footer";
 
 export const DashboardRoutes = () => {
@@ -20,12 +19,13 @@ export const DashboardRoutes = () => {
           {/* <Navbar /> */}
       
           {/* <SideBar /> */}
+          <Header />
+          <Menu />
           {/* Falta agregar el nav */}
-      <Header />
-      <Menu />
-      
-          <div className="content-wrapper">
+          
+          {/* <div className="container all"> */}
           {/* <section className="home"> */}
+          <div className="content-wrapper">
           <Routes>
               <Route path="tratamientos" element={<TratamientosScreen />} />
               <Route path="pacientes" element={<PacientesScreen />} />
@@ -35,14 +35,14 @@ export const DashboardRoutes = () => {
               <Route path="configuracion" element={<ConfigScreen />} />
               <Route path="usuarios" element={<UsersScreen />} />
   
-              {/* <Route path="search" element={<SearchScreen />} /> */}
-              {/* <Route path="hero/:heroeId" element={<HeroScreen />} /> */}
               <Route path="/" element={<TratamientosScreen />} />
         </Routes>
-       
-      {/* </section> */}
-        </div>
-        <Footer />
+
+
+      </div>
+
+      {/* <Footer /> */}
+
     </>
   )
 }

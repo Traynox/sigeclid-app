@@ -1,6 +1,6 @@
 import React from 'react'
 import { Routes, Route, BrowserRouter  } from "react-router-dom";
-import { LoginScreen } from '../components/ui/LoginScreen';
+// import { LoginScreen } from '../components/ui/LoginScreen';
 
 import { DashboardRoutes } from './DashboardRoutes';
 import { PrivateRoute } from './PrivateRoutes';
@@ -13,7 +13,7 @@ export const AppRouter = () => {
             {/* <Route path="/login" element={<LoginScreen />} /> */}
             <Route path="/login" element={
               <PublicRoute>
-               <LoginScreen/>
+               {/* <LoginScreen/> */}
               </PublicRoute>
             }
             
