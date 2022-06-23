@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export const Menu = () => {
   return (
@@ -37,13 +38,7 @@ export const Menu = () => {
         {/* Add icons to the links using the .nav-icon class
          with font-awesome or any other icon font library */}
         <li className="nav-item menu-open">
-          <a href="#" className="nav-link active">
-            <i className="nav-icon fas fa-tachometer-alt" />
-            <p>
-              Dashboard
-              <i className="right fas fa-angle-left" />
-            </p>
-          </a>
+         
           <ul className="nav nav-treeview">
             <li className="nav-item">
               <a href="./index.html" className="nav-link">
@@ -52,10 +47,10 @@ export const Menu = () => {
               </a>
             </li>
             <li className="nav-item">
-              <a href="./index2.html" className="nav-link">
+              <Link to="7configuracion" className="nav-link">
                 <i className="far fa-circle nav-icon" />
                 <p>Dashboard v2</p>
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
               <a href="./index3.html" className="nav-link active">

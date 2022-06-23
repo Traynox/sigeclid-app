@@ -1,5 +1,5 @@
 import React from 'react'
-import '../../styles/CSSTheme/pages/auth.css';
+// import '../../styles/CSSTheme/pages/auth.css';
 export const LoginScreen = () => {
   return (
  

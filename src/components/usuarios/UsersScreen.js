@@ -4,7 +4,7 @@ import { TableUsuarios } from './TableUsuarios'
 import { SearchBar } from '../ui/SearchBar'
 import { setModal } from "../../actions/ui";
 import { Modal } from "../ui/Modal";
-export const UsersScreem = () => {
+export const UsersScreen = () => {
 
     const dispatch = useDispatch();
     const setFormData = () => {

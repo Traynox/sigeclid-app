@@ -20,7 +20,7 @@ export const TratamientosScreen = () => {
   return (
     <>
       <Modal tipo="Agregar" nombre="tratamiento" />
-      <div className="container prueba">
+      <div className="container">
 
       
       <div className="card">
