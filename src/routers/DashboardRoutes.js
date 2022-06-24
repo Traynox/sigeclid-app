@@ -11,7 +11,8 @@ import { SideBar } from "../components/ui/SideBar";
 import { EmpleadosScreen } from "../components/empleados/EmpleadosScreen";
 import { Menu } from "../components-prueba/Menu";
 import { Header } from "../components-prueba/Header";
-import { Footer } from "../components-prueba/Footer";
+import {MiperfilScreen} from '../components/usuarios/miPerfil/MiperfilScreen'
+// import { Footer } from "../components-prueba/Footer";
 
 export const DashboardRoutes = () => {
     return (
@@ -32,7 +33,8 @@ export const DashboardRoutes = () => {
               <Route path="empleados" element={<EmpleadosScreen />} />
               <Route path="pagos" element={<PagosScreen />} />
               <Route path="expedientes" element={<ExpedientesScreen />} />
-              <Route path="configuracion" element={<ConfigScreen />} />
+              <Route path="mi-perfil" element={<MiperfilScreen />} />
+              <Route path="mi-clinica" element={<ConfigScreen />} />
               <Route path="usuarios" element={<UsersScreen />} />
   
               <Route path="/" element={<TratamientosScreen />} />
