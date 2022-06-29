@@ -52,7 +52,7 @@ const PacientesScreen = () => {
           </div>
             </div>
           </div>
-      </div>
+        </div>
     </>
 
   );

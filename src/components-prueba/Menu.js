@@ -10,7 +10,7 @@ export const Menu = () => {
       {/* Brand Logo */}
       <a href="index3.html" className="brand-link">
         <img
-          src="dist/img/AdminLTELogo.png"
+          src="dist/img/logo_1.png"
           alt="AdminLTE Logo"
           className="brand-image img-circle elevation-3"
           // style={{ opacity: ".8" }}
@@ -89,23 +89,23 @@ export const Menu = () => {
               </a>
               <ul className="nav nav-treeview">
                 <li className="nav-item">
-                  <Link to="/configuracion" className="nav-link">
-                    <i className="far fa-circle nav-icon" />
-                    <p>Simple Tables</p>
+                  <Link to='/mi-perfil' className="nav-link">
+                    <i className="fa-solid fa-user nav-icon"></i>
+                    <p>Mi perfil</p>
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <a href="pages/tables/data.html" className="nav-link">
-                    <i className="far fa-circle nav-icon" />
-                    <p>DataTables</p>
-                  </a>
+                  <Link to='/mi-clinica' className="nav-link">
+                    <i className="fa-solid fa-house-chimney-medical nav-icon"></i>
+                    <p>Mi clinica</p>
+                  </Link>
                 </li>
-                <li className="nav-item">
+                {/* <li className="nav-item">
                   <a href="pages/tables/jsgrid.html" className="nav-link">
                     <i className="far fa-circle nav-icon" />
                     <p>jsGrid</p>
                   </a>
-                </li>
+                </li> */}
               </ul>
             </li>
             <li className="nav-header">EXAMPLES</li>

@@ -11,6 +11,7 @@ const TablaPaciente = () => {
                             <th>NOMBRE</th>
                             <th>TELEFONO</th>
                             <th>EMAIL</th>
+                            <th>ACCIONES</th>
                         </tr>
                     </thead>
                     <tbody>
