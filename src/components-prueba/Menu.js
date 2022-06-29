@@ -1,5 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
+// import './styles/components/sidebar/sidebar-style.css';
+import '../styles/components/sidebar/sidebar-style.css';
+
 
 export const Menu = () => {
   return (
@@ -86,10 +89,10 @@ export const Menu = () => {
               </a>
               <ul className="nav nav-treeview">
                 <li className="nav-item">
-                  <a href="pages/tables/simple.html" className="nav-link">
+                  <Link to="/configuracion" className="nav-link">
                     <i className="far fa-circle nav-icon" />
                     <p>Simple Tables</p>
-                  </a>
+                  </Link>
                 </li>
                 <li className="nav-item">
                   <a href="pages/tables/data.html" className="nav-link">

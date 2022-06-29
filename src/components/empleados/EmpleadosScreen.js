@@ -25,7 +25,7 @@ export const EmpleadosScreen = () => {
   return (
     <>
     <Modal tipo="Agregar" nombre="empleado" />
-    <div className="container prueba">
+    <div className="container pt-2">
 
     
     <div className="card">
@@ -35,7 +35,7 @@ export const EmpleadosScreen = () => {
           <div className="col-6 d-flex justify-content-start pb-4">
             <button
               type="button"
-              className="btn btn-success btn-sm mx-2"
+              className="btn btn-new btn-sm mx-2"
               onClick={setFormData}
               data-bs-toggle="modal"
               data-bs-target="#modalE"

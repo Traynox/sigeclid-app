@@ -5,12 +5,13 @@ import { messages } from "../../helpers/calendar-messages-es";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import "moment/locale/es";
 import { CalendarEvent } from "./CalendarEvent";
+import { NewCita } from "./NewCita";
 
 moment.locale("es");
 const localizer = momentLocalizer(moment); // or globalizeLocalizer
 
 export const CitasScreen = () => {
-
+  
     const [lastView, setLastView] = useState(
         localStorage.getItem("lastView") || "month"
       );
@@ -36,11 +37,17 @@ export const CitasScreen = () => {
     <div className="container">
       <div className="card">
         <div className="card-body">
+          <NewCita />
+
           <Calendar
+            min={new Date(2020, 1, 0, 8, 0, 0)} 
+            max={new Date(2020, 1, 0, 17, 0, 0)}
+            format={"DD/MM/YYYY HH:mm"}
             localizer={localizer}
             // events={events}
             startAccessor="start"
             endAccessor="end"
+            
             messages={messages}
             eventPropGetter={eventStyleGetter}
             // onDoubleClickEvent={onDoubleClick}

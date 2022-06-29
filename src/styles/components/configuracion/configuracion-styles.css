@@ -1,4 +1,7 @@
 
+.just{
+  overflow-x: hidden !important ;
+}
 .bg-image {
     position: absolute;
   }

@@ -4,6 +4,7 @@ import { setModal } from '../../actions/ui';
 import '../../styles/components/pacientes/pacientes.css';
 import { Modal } from '../ui/Modal';
 import { SearchBar } from '../ui/SearchBar';
+import { CardsPacientes } from './CardsPacientes';
 import TablaPaciente from './TablaPaciente';
 const PacientesScreen = () => {
   const dispatch = useDispatch();
@@ -19,10 +20,10 @@ const PacientesScreen = () => {
   return (
     <>
       <Modal tipo="Agregar" nombre="paciente" />
-      <div className="container">
-        <div className="pacientes__header">
+      <div className="container pt-2">
+        {/* <div className="pacientes__header">
           <h1 className="pacientes__titulo ">Pacientes</h1>
-        </div>
+        </div> */}
           <div className="card">
             <div className="card-body">
               <div className="row">
@@ -30,7 +31,7 @@ const PacientesScreen = () => {
                 <div className="col-6 d-flex justify-content-start pb-4">
                   <button
                     type="button"
-                    className="btn btn-success btn-sm mx-2"
+                    className="btn btn-new btn-sm mx-2"
                     onClick={setFormData}
                     data-bs-toggle="modal"
                     data-bs-target="#modalE">
@@ -45,7 +46,8 @@ const PacientesScreen = () => {
 
               <div className="row">
             <div className="col-md-12">
-            <TablaPaciente />
+            {/* <TablaPaciente /> */}
+            <CardsPacientes />
             </div>
           </div>
             </div>
