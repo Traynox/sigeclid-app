@@ -8,18 +8,17 @@ const initialState = {
         total:0
     },
     active: {},
-   
 }
 
 export const tratamientosReducer = (state = initialState, action) => {
 
     switch (action.type) {
 
-        case types.setTratamiento:
+        case types.setTratamientos:
           
             return {
                 ...state,
-                paciente: action.payload
+                tratamientos: action.payload
             }
 
             case types.tratamientoSelected:

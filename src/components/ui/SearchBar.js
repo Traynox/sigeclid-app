@@ -5,6 +5,7 @@ import { useForm } from "../../hooks/useForm";
 import { setSearch } from "../../actions/ui";
 import "../../styles/components/search_bar/search_bar.css";
 import { setEmpleados } from "../../actions/empleados";
+import { setTratamientos } from "../../actions/tratamientos";
 import { useEffect } from "react";
 import { getDataPaginate } from "../../helpers/api";
 
@@ -33,12 +34,14 @@ export const SearchBar = () => {
       current_page,
       1
     )
-      .then((nada) => {
+      .then((data) => {
         switch (window.location.pathname.substring(1)) {
           case "empleados":
-            dispatch(setEmpleados(nada));
+            dispatch(setEmpleados(data));
             break;
-
+            case "tratamientos":
+              dispatch(setTratamientos(data));
+              break;
 
           default:
             break;

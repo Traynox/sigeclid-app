@@ -1,21 +1,72 @@
-import React from "react";
+import React, { useEffect, useRef } from 'react'
 import { useSelector } from "react-redux";
-
+import { useForm } from "../../hooks/useForm";
+import { useDispatch } from 'react-redux';
+import { setTratamiento } from '../../actions/tratamientos';
+import { update, store } from '../../actions/tratamientos'
 export const FormTratamiento = () => {
+
+  const dispatch = useDispatch();
+
+  const { active: tratamiento } = useSelector(state => state.allTratamientos);
   const { modal } = useSelector((state) => state.ui);
+  const [formValues, handleInputChange, reset] = useForm(tratamiento);
+  const { descripcion, monto } = formValues;
+  const activeTratamientoId = useRef(tratamiento.id_tratamiento);
+
+  useEffect(() => {
+
+    if (tratamiento.id_tratamiento !== activeTratamientoId.current) {
+      reset(tratamiento);
+      activeTratamientoId.current = tratamiento.id_tratamiento;
+    }
+
+  }, [tratamiento, reset]);
+
+  useEffect(() => {
+
+    dispatch(setTratamiento({ ...formValues }));
+
+  }, [formValues, dispatch]);
+
+  const storeTratamiento = async (e) => {
+    e.preventDefault();
+    dispatch(store(tratamiento));
+    reset({
+      nombre: '',
+      monto: ''
+    });
+  }
+
+  const updateTratamiento = async (e) => {
+    e.preventDefault();
+    dispatch(update(tratamiento));
+    // reset({
+    //   nombre: '',
+    //   cedula: '',
+    //   telefono: '',
+    //   direccion: '',
+    //   ocupacion: ''
+    // });
+
+  }
+
 
   return (
     <>
       <div className="container__tratamiento">
-        <form className="form-group p-4 tratamiento__form">
+        <form className="form-group p-4 tratamiento__form" 
+        onSubmit={(modal.tipo === 'Agregar') ? storeTratamiento : updateTratamiento}>
           {/* <div className="form-row"> */}
             <div className="input-data tratamiento__campo tratamiento__campo-1">
               <input
               className="input__tratamiento descripcion"
                 type="text"
                 name="descripcion"
-                required
+                value={descripcion}
+                onChange={handleInputChange}
                 autoComplete="off"
+                required
               />
               <div className="underline"></div>
               <label>Descripcion</label>
@@ -27,8 +78,10 @@ export const FormTratamiento = () => {
                 className="input__tratamiento monto"
                 type="number"
                 name="monto"
-                required
+                value={monto}
+                onChange={handleInputChange}
                 autoComplete="off"
+                required
               />
               <div className="underline"></div>
               <label>Monto</label>
@@ -55,7 +108,7 @@ export const FormTratamiento = () => {
               <button
                 type="submit"
                 className="tratamiento__campo-3 tratamiento__boton"
-                
+                data-dismiss="modal"
               >
                 Actualizar
                 </button>
@@ -66,7 +119,7 @@ export const FormTratamiento = () => {
             <button
               type="button"
               className="tratamiento__campo-4 tratamiento__boton"
-              data-bs-dismiss="modal"
+              data-dismiss="modal"
             >
               Cerrar
             </button>

@@ -5,7 +5,7 @@ export const getDataPaginate = async(categoria, paginate = 5, buscar = '', pageN
    switch (categoria) {
     case 'empleados':
     case 'pacientes':
- 
+    case 'tratamientos':
       const resp = await fetch(urlPaginate(categoria, paginate, buscar, pageNumber, tenant));
       const {data} = await resp.json();
       return data;

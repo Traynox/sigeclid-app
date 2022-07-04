@@ -11,7 +11,7 @@ export const Modal = () => {
   return (
     <>
 
-      <div className="modal fade" id='modalE' tabIndex="-1"     aria-labelledby="myModalLabel"
+      <div className="modal fade" id='modalE' tabIndex="-1" aria-labelledby="myModalLabel"
         aria-hidden="true">
         <div className="modal-dialog modal-lg modal-dialog-centered" role="document">
 
@@ -21,7 +21,9 @@ export const Modal = () => {
           &&
             <div className="modal-header text-center modal_header ">
               <h4 className="modal-title w-100 font-weight-bold py-2">{modal.tipo} {modal.nombre}</h4>
-              <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>   
+              <button type="button" className="close" aria-label="Close" data-dismiss="modal">
+                  <span aria-hidden="true">&times;</span>
+              </button>
             </div>
           }
 

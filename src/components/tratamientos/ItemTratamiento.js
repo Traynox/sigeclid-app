@@ -1,42 +1,41 @@
 import React from 'react'
+
 import { useDispatch } from 'react-redux';
 import { setModal } from "../../actions/ui";
-import { setEmpleado } from '../../actions/empleados';
-import { destroy} from '../../actions/empleados';
-export const ItemEmpleado = React.memo((empleado) => {
+import { setTratamiento } from '../../actions/tratamientos';
+import { destroy} from '../../actions/tratamientos';
 
-  const dispatch = useDispatch();
+export const ItemTratamiento = React.memo((tratamiento) => {
 
-  const deleteEmpleado=()=>{
+    const dispatch = useDispatch();
 
-    dispatch(destroy(empleado.id_empleado));
+  const deleteTratamiento=()=>{
+
+    dispatch(destroy(tratamiento.id_tratamiento));
   }
 
   const setFormData = () => {
 
-    dispatch(setEmpleado(empleado));
+    dispatch(setTratamiento(tratamiento));
     dispatch(
       setModal({
         tipo: "Editar",
-        nombre: "empleado",
-        vista: "Empleados",
+        nombre: "tratamiento",
+        vista: "Tratamientos",
       })
     );
   };
+
   return (
-    <>
-         <tr>
-        <td>{empleado.nombre}</td>
-        <td>{empleado.cedula}</td>
-        <td>{empleado.telefono}</td>
-        <td>{empleado.direccion}</td>
-        <td>{empleado.ocupacion}</td>
-        <td>
+    <tr>
+              <td>{tratamiento.descripcion}</td>
+              <td>{tratamiento.monto}</td>
+              <td>
                 <div className="btn-group dropstart acciones">
                   <a
                     type="button"
                     data-toggle="dropdown"
-                    className="btn btn-md text-decorated-none "
+                    className="btn btn-md  text-decorated-none "
                     data-dismiss="dropdown"
                     aria-expanded="false"
                   >
@@ -44,14 +43,13 @@ export const ItemEmpleado = React.memo((empleado) => {
                     <i className="fa-solid fa-bars"></i>
                   </a>
 
-                  <ul className="dropdown-menu ">
+                  <ul className="dropdown-menu z-index-5">
                     <li>
                       <a
-                         data-toggle="modal"
-                         data-target="#modalE"
-                         onClick={setFormData}
-                        // data-target="#exampleModalEdit{{ $item->id_articulo }}"
-                        className="btn btn-md text-decorated-none dropdown-item"
+                        data-toggle="modal"
+                        data-target="#modalE"
+                        onClick={setFormData}
+                        className="btn btn-md text-decorated-none dropdown-item  "
                       >
                         <i className="fas fa-edit mx-1"></i>
                         Editar
@@ -70,12 +68,10 @@ export const ItemEmpleado = React.memo((empleado) => {
                     </li>
                   </ul>
                 </div>
-                <button type="button" onClick={deleteEmpleado} className="btn btn-md">
+                <button type="button" onClick={deleteTratamiento} className="btn btn-md">
                   <i className="fas fa-trash-alt text-danger"></i>
                 </button>
               </td>
-      
-      </tr>
-    </>
+            </tr>
   )
 })
