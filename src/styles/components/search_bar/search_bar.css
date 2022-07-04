@@ -38,7 +38,8 @@
     justify-content: center;
     align-items: center;
     color: white;
-    background-color: #27399c;
+    background-color: hsl(183, 86%, 19%);
+    /* background-color: #27399c; */
     font-size: 10px;
     bottom: 30px;
     position: relative;

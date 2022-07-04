@@ -20,13 +20,8 @@ export const TratamientosScreen = () => {
   return (
     <>
       <Modal tipo="Agregar" nombre="tratamiento" />
-      
-      <div className="d-flex justify-content-between ">
-        <h1 className='m-4'>Tratamientos</h1>
 
-      </div>
-
-      <div className="container">
+      <div className="container pt-2">
 
         <div className="card">
           <div className="card-body">
@@ -35,7 +30,7 @@ export const TratamientosScreen = () => {
               <div className="col-6 d-flex justify-content-start pb-4">
                 <button
                   type="button"
-                  className="btn btn-success btn-sm mx-2"
+                  className="btn btn-new btn-sm mx-2"
                   onClick={setFormData}
                   data-bs-toggle="modal"
                   data-bs-target="#modalE"

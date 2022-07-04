@@ -1,0 +1,29 @@
+aside{
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    overflow-y: hidden !important;
+    background-color: hsl(188, 100%, 14%) !important;
+    
+}
+
+
+.content-wrapper{
+    overflow-y: auto !important;
+}
+
+aside i {
+        color: white !important;
+} 
+aside p {
+    color: white !important;
+} 
+
+
+aside .nav-link:hover{
+ background-color: hsl(183, 86%, 19%);
+}
+
+.nav-treeview{
+    background-color: var(--gradient) !important;
+}

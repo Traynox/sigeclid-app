@@ -1,5 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
+// import './styles/components/sidebar/sidebar-style.css';
+import '../styles/components/sidebar/sidebar-style.css';
+
 
 export const Menu = () => {
   return (
@@ -7,12 +10,12 @@ export const Menu = () => {
       {/* Brand Logo */}
       <a href="index3.html" className="brand-link">
         <img
-          src="dist/img/AdminLTELogo.png"
-          alt="AdminLTE Logo"
-          className="brand-image img-circle elevation-3"
+          src="dist/img/logo_1.png"
+          alt="null"
+          // className="brand-image img-circle elevation-3"
           // style={{ opacity: ".8" }}
         />
-        <span className="brand-text bg-dark">SIGECLID</span>
+        {/* <span className="">SIGECLID</span> */}
       </a>
       {/* Sidebar */}
       <div className="sidebar">
@@ -105,7 +108,7 @@ export const Menu = () => {
                 </li> */}
               </ul>
             </li>
-            <li className="nav-header">EXAMPLES</li>
+            {/* <li className="nav-header">EXAMPLES</li> */}
 
             <li className="nav-item">
               <Link to="/empleados" className="nav-link">
