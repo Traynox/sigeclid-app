@@ -34,7 +34,7 @@ export const CitasScreen = () => {
         };
       };
   return (
-    <div className="container">
+    <div className="container pt-2">
       <div className="card">
         <div className="card-body">
           <NewCita />

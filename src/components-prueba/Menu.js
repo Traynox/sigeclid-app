@@ -11,11 +11,11 @@ export const Menu = () => {
       <a href="index3.html" className="brand-link">
         <img
           src="dist/img/logo_1.png"
-          alt="AdminLTE Logo"
-          className="brand-image img-circle elevation-3"
+          alt="null"
+          // className="brand-image img-circle elevation-3"
           // style={{ opacity: ".8" }}
         />
-        <span className="brand-text bg-dark">SIGECLID</span>
+        {/* <span className="">SIGECLID</span> */}
       </a>
       {/* Sidebar */}
       <div className="sidebar">
@@ -108,7 +108,7 @@ export const Menu = () => {
                 </li> */}
               </ul>
             </li>
-            <li className="nav-header">EXAMPLES</li>
+            {/* <li className="nav-header">EXAMPLES</li> */}
 
             <li className="nav-item">
               <Link to="/empleados" className="nav-link">
