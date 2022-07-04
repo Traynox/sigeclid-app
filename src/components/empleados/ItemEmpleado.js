@@ -1,9 +1,18 @@
 import React from 'react'
+import { useDispatch } from 'react-redux';
+import { destroy } from '../../actions/empleados';
 
 export const ItemEmpleado = React.memo((empleado) => {
+
+  const dispatch = useDispatch();
+
+  const deleteEmpleado = () => {
+      dispatch(destroy(empleado.id_empleado));
+  }
+
   return (
     <>
-         <tr>
+        <tr>
         <td>{empleado.nombre}</td>
         <td>{empleado.cedula}</td>
         <td>{empleado.telefono}</td>
@@ -46,7 +55,7 @@ export const ItemEmpleado = React.memo((empleado) => {
                     </li>
                   </ul>
                 </div>
-                <button type="submit" className="btn btn-md">
+                <button type="submit" className="btn btn-md" onClick={deleteEmpleado}>
                   <i className="fas fa-trash-alt text-danger"></i>
                 </button>
               </td>

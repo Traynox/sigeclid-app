@@ -41,3 +41,16 @@ export const store = (empleado) => {
     }
   
   }
+
+  
+export const destroy = (id) => {
+
+  return async (dispatch, getState) => {
+      const {texto}=getState().ui.search;
+      const {current_page}=getState().allEmpleados;
+      await axios.delete(`${url('empleados')}/${id}`);
+    
+      const empleados = await getDataPaginate('empleados',5, texto, current_page, 1);
+      dispatch(setEmpleados(empleados));
+  }
+}

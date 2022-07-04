@@ -36,7 +36,7 @@ export const EmpleadosScreen = () => {
               <div className="col-6 d-flex justify-content-start pb-4">
                 <button
                   type="button"
-                  className="btn btn-success btn-sm mx-2"
+                  className="btn btn-new btn-sm mx-2"
                   onClick={setFormData}
                   data-toggle="modal"
                   data-target="#modalE"
