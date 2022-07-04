@@ -1,77 +1,81 @@
 import { types } from "../types/types"
-// import { url, getDataPaginate } from "../helpers/api"
+import { url, getDataPaginate } from "../helpers/api"
 import axios from 'axios'
 
-export const setClientes = (pacientes) => {
+export const setTratamientos = (tratamientos) => {
 
   return {
-    type: types.setPacientes,
-    payload: pacientes,
+    type: types.setTratamientos,
+    payload: tratamientos,
     }
 
 }
 
-export const setCliente = (paciente) => {
+export const setTratamiento = (tratamiento) => {
 
   return {
-    type: types.pacienteSelected,
+    type: types.tratamientoSelected,
     payload: {
-      ...paciente
+      ...tratamiento
     },
   }
 
 }
 
-export const store = (cliente) => {
+export const store = (tratamiento) => {
 
-//   return async (dispatch, getState) => {
+  return async (dispatch, getState) => {
 
-//     // const {id}= getState().auth;
-//     const {leyenda}=getState().ui.search;
-//     const {current_page}=getState().allClientes;
+    // const {id}= getState().auth;
+    const {texto}=getState().ui.search;
+    const {current_page}=getState().allTratamientos;
     
-//     const storeClient = { ...cliente }
-//     delete storeClient.id_cliente;
-//     console.log('inserte', storeClient)
-//     await axios.post(`${url('clientes')}`, storeClient);
+    const storeTratamiento = { ...tratamiento }
+    delete storeTratamiento.id_tratamiento;
+    const store={...storeTratamiento, id_tenant: 1};
+   
+    await axios.post(`${url('tratamientos')}`, store);
                   
-//     const clientes = await getDataPaginate('clientes',5, leyenda, current_page);
+    const tratamientos = await getDataPaginate('tratamientos',5, texto, current_page,1); //ultimo numero es el numero de tenant
 
-//     dispatch(setClientes(clientes));
-//   }
+    dispatch(setTratamientos(tratamientos));
+  }
 
 }
 
+export const update = (tratamiento) => {
 
-export const update = (cliente) => {
+  return async (dispatch, getState) => {
 
-//   return async (dispatch, getState) => {
+    // const {id}= getState().auth;
+    const {texto}=getState().ui.search;
+    const {current_page}=getState().allTratamientos;
 
-//     // const {id}= getState().auth;
-//     const {leyenda}=getState().ui.search;
-//     const {current_page}=getState().allClientes;
+    const updateTratamiento = { ...tratamiento }
+    delete updateTratamiento.id_tratamiento;
 
-//     const updateClient = { ...cliente }
-//     delete updateClient.id_cliente;
-//     await axios.put(`${url('clientes')}/${cliente.id_cliente}`, updateClient);
-//     // const clientes = await getAllData('clientes');
-//     const clientes = await getDataPaginate('clientes',5, leyenda, current_page);
-//     dispatch(setClientes(clientes));
+    const update={...updateTratamiento, id_tenant: 1};
+
+    await axios.put(`${url('tratamientos')}/${tratamiento.id_tratamiento}`, update);
+    // const clientes = await getAllData('clientes');
+    const tratamientos = await getDataPaginate('tratamientos',5, texto, current_page,1);
+    dispatch(setTratamientos(tratamientos));
     
-//   }
+  }
 
 }
+
 export const destroy = (id) => {
 
-//   return async (dispatch, getState) => {
+  return async (dispatch, getState) => {
 
-//     const {leyenda}=getState().ui.search;
-//     const {current_page}=getState().allClientes;
+    const {texto}=getState().ui.search;
+    const {current_page}=getState().allTratamientos;
     
-//     await axios.delete(`${url('clientes')}/${id}`);
-//     const clientes = await getDataPaginate('clientes',5, leyenda, current_page);
-//     // const clientes = await getAllData('clientes');
-//     dispatch(setClientes(clientes));
-//   }
+    await axios.delete(`${url('tratamientos')}/${id}`);
+    const tratamientos = await getDataPaginate('tratamientos',5, texto, current_page,1);
+    // const clientes = await getAllData('clientes');
+    dispatch(setTratamientos(tratamientos));
+  }
 
 }

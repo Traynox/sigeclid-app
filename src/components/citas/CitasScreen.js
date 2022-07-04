@@ -16,23 +16,23 @@ export const CitasScreen = () => {
         localStorage.getItem("lastView") || "month"
       );
 
-      const onViewChange = (e) => {
-        setLastView(e);
-        localStorage.setItem("lastView", e);
-      };
+  const onViewChange = (e) => {
+    setLastView(e);
+    localStorage.setItem("lastView", e);
+  };
 
-    const eventStyleGetter = (event, start, end, isSelected) => {
-        const style = {
-          backgroundColor: "#867cf7",
-          borderRadius: "0px",
-          opacity: 0.8,
-          display: "block",
-          color: "white",
-        };
-        return {
-          style,
-        };
-      };
+  const eventStyleGetter = (event, start, end, isSelected) => {
+    const style = {
+      backgroundColor: "#867cf7",
+      borderRadius: "0px",
+      opacity: 0.8,
+      display: "block",
+      color: "white",
+    };
+    return {
+      style,
+    };
+  };
   return (
     <div className="container pt-2">
       <div className="card">

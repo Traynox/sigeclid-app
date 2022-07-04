@@ -8,7 +8,9 @@ import { SearchBar } from "../ui/SearchBar";
 import { TableEmpleados } from "./TableEmpleados";
 
 export const EmpleadosScreen = () => {
+
   const dispatch = useDispatch();
+  
   const setFormData = () => {
     dispatch(
       setModal({
@@ -28,7 +30,6 @@ export const EmpleadosScreen = () => {
       </div>
       <div className="container">
        
-
         <div className="card">
           <div className="card-body">
             <div className="row">

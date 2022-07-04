@@ -1,223 +1,87 @@
-import React from "react";
+import React,{useEffect} from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Pagination from "react-js-pagination";
+import { setTratamientos } from "../../actions/tratamientos";
+import { getDataPaginate } from "../../helpers/api";
+import { ItemTratamiento } from "./ItemTratamiento";
+// import { TratamientosScreen } from "./TratamientosScreen";
 
 export const TableTratamientos = () => {
+
+
+   const {data:tratamientos,current_page,per_page,total} = useSelector((state) => state.allTratamientos.tratamientos);
+
+  const { search } = useSelector((state) => state.ui);
+  const {texto} =search;
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+
+    getDataPaginate('tratamientos',5,search.texto,current_page,1)
+                .then(tratamientos => {
+                
+                  dispatch(setTratamientos(tratamientos))
+                }).catch(error => {
+                  console.log(error)
+                })
+               
+  } ,[]);
+
+  useEffect(() => {
+
+    getDataPaginate('tratamientos',5,search.texto,current_page, 1)
+                .then(tratamientos => {
+                 
+                  dispatch(setTratamientos(tratamientos))
+                }).catch(error => {
+                  console.log(error)
+                })
+          
+  } ,[texto,dispatch]);
+
+
+  const handlePageChange = (pageNumber) => {
+  
+    getDataPaginate('tratamientos',5,search.texto,pageNumber)
+                .then(tratamientos => {
+                  // console.log('clientes', clientes)
+                  dispatch(setTratamientos(tratamientos))
+                }).catch(error => {
+                  console.log(error)
+                })
+}
+
+
   return (
     <>
       <div className="table-responsive">
         <table className="table table-hover table-bordered " id="tabla">
           <thead>
             <tr>
-              {/* <th>Item</th> */}
+             
               <th>DESCRIPCION</th>
               <th>MONTO</th>
               <th>ACCIONES</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Tratamiento gna</td>
-              <td>32000</td>
-              <td>
-                <div className="btn-group dropstart acciones">
-                  <a
-                    type="button"
-                    data-toggle="dropdown"
-                    className="btn btn-md  text-decorated-none "
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                  >
-                    {/* <i className="fas fa-ellipsis-v text-warning" ></i> */}
-                    <i className="fa-solid fa-bars"></i>
-                  </a>
 
-                  <ul
-                    className="dropdown-menu z-index-5
-                      "
-                  >
-                    <li>
-                      <a
-                        // data-toggle="modal"
-                        // data-target="#exampleModalEdit{{ $item->id_articulo }}"
-                        className="btn btn-md  text-decorated-none dropdown-item  "
-                      >
-                        <i className="fas fa-edit mx-1"></i>
-                        Editar
-                      </a>
-                    </li>
+          {
+            tratamientos.map((tratamiento=>
+              <ItemTratamiento 
+              key={tratamiento.id_tratamiento} 
+              {...tratamiento}/>
+              ))
+          } 
 
-                    <li>
-                      <a
-                        // data-toggle="modal"
-                        // data-target="#exampleModal{{ $item->id_articulo }}"
-                        className="btn btn-md  text-decorated-none dropdown-item "
-                      >
-                        <i className="fas fa-eye mx-1"></i>
-                        Ver
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-                <button type="submit" className="btn btn-md">
-                  <i className="fas fa-trash-alt text-danger"></i>
-                </button>
-              </td>
-            </tr>
-
-            <tr>
-              <td>Tratamiento gna</td>
-              <td>32000</td>
-              <td>
-                <div className="btn-group dropstart acciones">
-                  <a
-                    type="button"
-                    data-toggle="dropdown"
-                    className="btn btn-md  text-decorated-none "
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                  >
-                    {/* <i className="fas fa-ellipsis-v text-warning" ></i> */}
-                    <i className="fa-solid fa-bars"></i>
-                  </a>
-
-                  <ul
-                    className="dropdown-menu z-index-5
-                      "
-                  >
-                    <li>
-                      <a
-                        // data-toggle="modal"
-                        // data-target="#exampleModalEdit{{ $item->id_articulo }}"
-                        className="btn btn-md  text-decorated-none dropdown-item  "
-                      >
-                        <i className="fas fa-edit mx-1"></i>
-                        Editar
-                      </a>
-                    </li>
-
-                    <li>
-                      <a
-                        // data-toggle="modal"
-                        // data-target="#exampleModal{{ $item->id_articulo }}"
-                        className="btn btn-md  text-decorated-none dropdown-item "
-                      >
-                        <i className="fas fa-eye mx-1"></i>
-                        Ver
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-                <button type="submit" className="btn btn-md">
-                  <i className="fas fa-trash-alt text-danger"></i>
-                </button>
-              </td>
-            </tr>
-
-            <tr>
-              <td>Tratamiento gna</td>
-              <td>32000</td>
-              <td>
-                <div className="btn-group dropstart acciones">
-                  <a
-                    type="button"
-                    data-toggle="dropdown"
-                    className="btn btn-md  text-decorated-none "
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                  >
-                    {/* <i className="fas fa-ellipsis-v text-warning" ></i> */}
-                    <i className="fa-solid fa-bars"></i>
-                  </a>
-
-                  <ul
-                    className="dropdown-menu z-index-5
-                      "
-                  >
-                    <li>
-                      <a
-                        // data-toggle="modal"
-                        // data-target="#exampleModalEdit{{ $item->id_articulo }}"
-                        className="btn btn-md  text-decorated-none dropdown-item  "
-                      >
-                        <i className="fas fa-edit mx-1"></i>
-                        Editar
-                      </a>
-                    </li>
-
-                    <li>
-                      <a
-                        // data-toggle="modal"
-                        // data-target="#exampleModal{{ $item->id_articulo }}"
-                        className="btn btn-md  text-decorated-none dropdown-item "
-                      >
-                        <i className="fas fa-eye mx-1"></i>
-                        Ver
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-                <button type="submit" className="btn btn-md">
-                  <i className="fas fa-trash-alt text-danger"></i>
-                </button>
-              </td>
-            </tr>
-
-            <tr>
-              <td>Tratamiento gna</td>
-              <td>32000</td>
-              <td>
-                <div className="btn-group dropstart acciones">
-                  <a
-                    type="button"
-                    data-toggle="dropdown"
-                    className="btn btn-md  text-decorated-none "
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                  >
-                    {/* <i className="fas fa-ellipsis-v text-warning" ></i> */}
-                    <i className="fa-solid fa-bars"></i>
-                  </a>
-
-                  <ul
-                    className="dropdown-menu z-index-5
-                      "
-                  >
-                    <li>
-                      <a
-                        // data-toggle="modal"
-                        // data-target="#exampleModalEdit{{ $item->id_articulo }}"
-                        className="btn btn-md  text-decorated-none dropdown-item  "
-                      >
-                        <i className="fas fa-edit mx-1"></i>
-                        Editar
-                      </a>
-                    </li>
-
-                    <li>
-                      <a
-                        // data-toggle="modal"
-                        // data-target="#exampleModal{{ $item->id_articulo }}"
-                        className="btn btn-md  text-decorated-none dropdown-item "
-                      >
-                        <i className="fas fa-eye mx-1"></i>
-                        Ver
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-                <button type="submit" className="btn btn-md">
-                  <i className="fas fa-trash-alt text-danger"></i>
-                </button>
-              </td>
-            </tr>
           </tbody>
         </table>
         <div className="pagination justify-content-end">
           <Pagination
-            // activePage={current_page}
-            // itemsCountPerPage={parseInt(per_page)}
+            activePage={current_page}
+            itemsCountPerPage={parseInt(per_page)}
             totalItemsCount={5}
-            // onChange={(pageNumber) => handlePageChange(pageNumber)}
+            onChange={(pageNumber) => handlePageChange(pageNumber)}
             itemClass="page-item"
             linkClass="page-link"
             firstPageText="inicio"

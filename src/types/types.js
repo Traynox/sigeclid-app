@@ -15,11 +15,11 @@ export const types = {
     empleadoShow: '[empleados] empleadoShow',
     empleadoDestroy: '[empleados] empleadoDestroy',
 
-    setTratamiento: '[proveedores] setProveedores',
-    tratamientoSelected: '[proveedores] proveedorSelected',
-    tratamientoUpdate: '[proveedores] proveedorUpdate',
-    tratamientoShow: '[proveedores] proveedorShow',
-    tratamientoDestroy: '[proveedores] proveedorDestroy',
+    setTratamientos: '[tratamientos] setTratamientos',
+    tratamientoSelected: '[tratamientos] tratamientoSelected',
+    tratamientoUpdate: '[tratamientos] tratamientoUpdate',
+    tratamientoShow: '[tratamientos] tratamientoShow',
+    tratamientoDestroy: '[tratamientos] tratamientoDestroy',
 
     modalStore: '[ui] modalStore',
     modalUpdate: '[ui] modalUpdate',
