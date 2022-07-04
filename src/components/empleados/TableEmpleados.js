@@ -1,7 +1,57 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Pagination from "react-js-pagination";
+import { useDispatch, useSelector } from "react-redux";
+import { setEmpleados } from "../../actions/empleados";
+import { getDataPaginate } from "../../helpers/api";
+import { ItemEmpleado } from "./ItemEmpleado";
 
 export const TableEmpleados = () => {
+
+  const {data:empleados,current_page,per_page,total} = useSelector((state) => state.allEmpleados.empleados);
+
+  const { search } = useSelector((state) => state.ui);
+  const {texto} =search;
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+
+    getDataPaginate('empleados',5,search.texto,current_page,1)
+                .then(empleados => {
+                 
+                  dispatch(setEmpleados(empleados))
+                }).catch(error => {
+                  console.log(error)
+                })
+               
+  } ,[]);
+
+  //ESTE ES PARA UNA BUSQUEDA EN TIEMPO REAL SUPONGAMOS 
+  useEffect(() => {
+
+    getDataPaginate('empleados',5,search.texto,current_page, 1)
+                .then(empleados => {
+                  // console.log('clientes', clientes)
+                
+                  dispatch(setEmpleados(empleados))
+                }).catch(error => {
+                  console.log(error)
+                })
+                // console.log('getDataPaginate ')
+  } ,[texto,dispatch]);
+
+  const handlePageChange = (pageNumber) => {
+  
+    getDataPaginate('empleados',5,search.texto,pageNumber)
+                .then(empleados => {
+                  // console.log('clientes', clientes)
+                  dispatch(setEmpleados(empleados))
+                }).catch(error => {
+                  console.log(error)
+                })
+}
+
+
   return (
     <>
       <div className="table-responsive">
@@ -18,64 +68,23 @@ export const TableEmpleados = () => {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Carolos Vargas Mendez</td>
-              <td>701180987</td>
-              <td>6856749</td>
-              <td>100 este 50 norte call</td>
-              <td>Ginecologo</td>
-              <td>
-                <div className="btn-group dropstart acciones">
-                  <a
-                    type="button"
-                    data-toggle="dropdown"
-                    className="btn btn-md  text-decorated-none "
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                  >
-                    {/* <i className="fas fa-ellipsis-v text-warning" ></i> */}
-                    <i className="fa-solid fa-bars"></i>
-                  </a>
-
-                  <ul className="dropdown-menu ">
-                    <li>
-                      <a
-                        // data-toggle="modal"
-                        // data-target="#exampleModalEdit{{ $item->id_articulo }}"
-                        className="btn btn-md  text-decorated-none dropdown-item  "
-                      >
-                        <i className="fas fa-edit mx-1"></i>
-                        Editar
-                      </a>
-                    </li>
-
-                    <li>
-                      <a
-                        // data-toggle="modal"
-                        // data-target="#exampleModal{{ $item->id_articulo }}"
-                        className="btn btn-md  text-decorated-none dropdown-item "
-                      >
-                        <i className="fas fa-eye mx-1"></i>
-                        Ver
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-                <button type="submit" className="btn btn-md">
-                  <i className="fas fa-trash-alt text-danger"></i>
-                </button>
-              </td>
-            </tr>
+          {
+            empleados.map((empleado=>
+              <ItemEmpleado
+                key={empleado.id_empleado}
+                {...empleado} />
+              ))
+          }
 
             
           </tbody>
         </table>
         <div className="pagination justify-content-end">
           <Pagination
-            // activePage={current_page}
-            // itemsCountPerPage={parseInt(per_page)}
+            activePage={current_page}
+            itemsCountPerPage={parseInt(per_page)}
             totalItemsCount={5}
-            // onChange={(pageNumber) => handlePageChange(pageNumber)}
+            onChange={(pageNumber) => handlePageChange(pageNumber)}
             itemClass="page-item"
             linkClass="page-link"
             firstPageText="inicio"

@@ -1,15 +1,13 @@
-import React from 'react'
+import React from "react";
 import { useDispatch } from "react-redux";
 import { setModal } from "../../actions/ui";
 import "../../styles/components/empleados/empleados-style.css";
 import { Modal } from "../ui/Modal";
 // import { TableTratamientos } from "./TableTratamientos";
 import { SearchBar } from "../ui/SearchBar";
-import { TableEmpleados } from './TableEmpleados';
-
+import { TableEmpleados } from "./TableEmpleados";
 
 export const EmpleadosScreen = () => {
-
   const dispatch = useDispatch();
   const setFormData = () => {
     dispatch(
@@ -21,16 +19,15 @@ export const EmpleadosScreen = () => {
     );
   };
 
-
   return (
     <>
       <Modal tipo="Agregar" nombre="empleado" />
 
       <div className="d-flex justify-content-between ">
-        <h1 className='m-4'>Empleados</h1>
-
+        <h1 className="m-4">Empleados</h1>
       </div>
       <div className="container">
+       
 
         <div className="card">
           <div className="card-body">
@@ -41,10 +38,9 @@ export const EmpleadosScreen = () => {
                   type="button"
                   className="btn btn-success btn-sm mx-2"
                   onClick={setFormData}
-                  data-bs-toggle="modal"
-                  data-bs-target="#modalE"
+                  data-toggle="modal"
+                  data-target="#modalE"
                 >
-
                   <i className="bx bx-plus-circle icon mx-1"></i>
                   Nuevo Empleado
                 </button>
@@ -63,5 +59,5 @@ export const EmpleadosScreen = () => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};

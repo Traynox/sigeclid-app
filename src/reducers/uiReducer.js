@@ -24,26 +24,26 @@ export const uiReducer = (state = initialState, action) => {
             return {
                 ...state,
                 modal: action.payload
-            }
+            };
         case types.modalUpdate:
 
             return {
                 ...state,
                 modal: action.payload
-            }
+            };
         case types.setSearch:
 
             return {
                 ...state,
                 search: action.payload
-            }
+            };
 
             case types.setMode:
 
             return {
                 ...state,
                 mode: action.payload
-            }
+            };
 
 
         default:

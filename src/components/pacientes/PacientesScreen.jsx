@@ -33,8 +33,8 @@ const PacientesScreen = () => {
                     type="button"
                     className="btn btn-new btn-sm mx-2"
                     onClick={setFormData}
-                    data-bs-toggle="modal"
-                    data-bs-target="#modalE">
+                    data-toggle="modal"
+                    data-target="#modalE">
                     <i className="bx bx-plus-circle icon mx-1"></i>
                     Nuevo Paciente
                   </button>
