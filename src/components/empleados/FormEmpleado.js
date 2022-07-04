@@ -134,7 +134,7 @@ export const FormEmpleado = () => {
               <div className="col-md-6 d-flex justify-content-center ">
                 {modal.tipo === "Agregar" ? (
                   <button type="submit" className=" empleado__campo-7 empleado__boton"
-                   data-dismiss="modal"
+                  
                   >
                     Guardar
                   </button>

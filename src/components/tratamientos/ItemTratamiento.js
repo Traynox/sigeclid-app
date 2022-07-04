@@ -49,7 +49,7 @@ export const ItemTratamiento = React.memo((tratamiento) => {
                         data-toggle="modal"
                         data-target="#modalE"
                         onClick={setFormData}
-                        className="btn btn-md text-decorated-none dropdown-item  "
+                        className="btn btn-md text-decorated-none dropdown-item"
                       >
                         <i className="fas fa-edit mx-1"></i>
                         Editar

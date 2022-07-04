@@ -36,14 +36,14 @@ export const UsersScreen = () => {
                                         <div className="col-6 d-flex justify-content-start pb-4">
                                             <button
                                                 type="button"
-                                                className="btn btn-success btn-sm mx-2"
+                                                className="btn btn-new btn-sm mx-2"
                                                 onClick={setFormData}
-                                                data-bs-toggle="modal"
-                                                data-bs-target="#modalE"
+                                                data-toggle="modal"
+                                                data-target="#modalE"
                                             >
 
                                                 <i className="bx bx-plus-circle icon mx-1"></i>
-                                                Nuevo Tratamiento
+                                                Nuevo Usuario
                                             </button>
                                         </div>
                                         <div className="col-6 d-flex justify-content-end ">

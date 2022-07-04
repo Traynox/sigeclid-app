@@ -34,7 +34,7 @@ export const store = (empleado) => {
       delete storeEmpleado.id_empleado;
       const store={...storeEmpleado, id_tenant: 1};
       // console.log('inserte', storeClient)
-      console.log(store);
+      // console.log(store);
       await axios.post(`${url('empleados')}`, store);
                     
       const empleados = await getDataPaginate('empleados',5, texto, current_page, 1);

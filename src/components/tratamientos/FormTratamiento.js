@@ -33,7 +33,7 @@ export const FormTratamiento = () => {
     e.preventDefault();
     dispatch(store(tratamiento));
     reset({
-      nombre: '',
+      descripcion: '',
       monto: ''
     });
   }
@@ -97,7 +97,7 @@ export const FormTratamiento = () => {
             <div className="col-md-6 ">
             {modal.tipo === "Agregar" ? (
                     <button type="submit" className="tratamiento__campo-3 tratamiento__boton"
-                    data-bs-dismiss="modal"
+                    
                     >
                 Guardar
                   </button>
@@ -108,7 +108,7 @@ export const FormTratamiento = () => {
               <button
                 type="submit"
                 className="tratamiento__campo-3 tratamiento__boton"
-                data-dismiss="modal"
+                // data-dismiss="modal"
               >
                 Actualizar
                 </button>

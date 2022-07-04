@@ -1,10 +1,8 @@
 import React from 'react'
 import { useDispatch } from 'react-redux';
 import { destroy } from '../../actions/empleados';
-
 import { setModal } from "../../actions/ui";
 import { setEmpleado } from '../../actions/empleados';
-import { destroy} from '../../actions/empleados';
 export const ItemEmpleado = React.memo((empleado) => {
 
   const dispatch = useDispatch();

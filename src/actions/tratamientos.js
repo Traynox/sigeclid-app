@@ -34,6 +34,7 @@ export const store = (tratamiento) => {
     delete storeTratamiento.id_tratamiento;
     const store={...storeTratamiento, id_tenant: 1};
    
+    // console.log(store);
     await axios.post(`${url('tratamientos')}`, store);
                   
     const tratamientos = await getDataPaginate('tratamientos',5, texto, current_page,1); //ultimo numero es el numero de tenant
@@ -56,6 +57,7 @@ export const update = (tratamiento) => {
 
     const update={...updateTratamiento, id_tenant: 1};
 
+    // console.log(update);
     await axios.put(`${url('tratamientos')}/${tratamiento.id_tratamiento}`, update);
     // const clientes = await getAllData('clientes');
     const tratamientos = await getDataPaginate('tratamientos',5, texto, current_page,1);
