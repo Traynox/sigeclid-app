@@ -32,8 +32,14 @@ export const types = {
 
     setCitas: '[citas] setCitas',
 
-    eventSetActive: '[event] Set active',
+    setEvents: '[events] setEvents',
+
+    loadEvents: '[events] loadEvents',
     eventAddNew: '[event] Add new',
+
+    eventSetActive: '[event] Set active',
+    
+
     eventClearActiveEvent: '[event] Clear active',
     eventUpdated: '[event] Event updated',
     eventDeleted: '[event] Event deleted',

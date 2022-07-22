@@ -7,7 +7,8 @@ import { useUiStore } from "../../hooks/useUiStore";
 
 export const NewCita = () => {
   const { openCitaModal } = useUiStore();
-  const { setActiveEvent } = useCalendarStore();
+  const { setActiveEvent} = useCalendarStore();
+  
 
   const setFormData = () => {
     setActiveEvent({

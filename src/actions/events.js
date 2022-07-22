@@ -1,7 +1,26 @@
 import { getCitas, url } from "../helpers/api";
 import { types } from "../types/types";
 import axios from 'axios'
+import { ConvierteDateEvent } from "../hooks/ConvierteDateEvent";
+import { useCalendarStore } from "../hooks/useCalendarStore";
 
+export const setEvents = (events) => {
+
+  return {
+    type: types.setEvents,
+    payload: events,
+    }
+
+}
+
+export const onLoadEvents = (events = []) => {
+
+  return {
+    type: types.loadEvents,
+    payload: events,
+    }
+
+}
 
 export const eventAddNew = (event) => ({
     type: types.eventAddNew,
@@ -10,6 +29,9 @@ export const eventAddNew = (event) => ({
 
 export const store = (cita) => {
 
+  // const {startLoadingEvents} = useCalendarStore();
+
+
     return async (dispatch, getState) => {
       try {
          // const {id}= getState().auth;
@@ -17,21 +39,19 @@ export const store = (cita) => {
     //   const {current_page}=getState().allEmpleados;
       
       const storeCita = { ...cita }
-      // delete storeCita.id_empleado;
       const store={...storeCita, id_tenant: 1};
-      // console.log('inserte', storeClient)
-      console.log(store);
-      await axios.post(`${url('citas')}`, store).then(
+       await axios.post(`${url('citas')}`, store).then(
         response =>{
             console.log(response);
         }
       ).catch(error=>{
         console.log(error.response);
       });
-                    
-      dispatch(eventAddNew(citas));
-      const citas = await getCitas('citas/tenant/1');
-        // console.log(cita);
+                
+      const {data} = await getCitas(`citas/tenant/1`);
+      const events = ConvierteDateEvent({data}.data)      
+      dispatch(onLoadEvents(events));
+
       } catch (error) {
         console.log(error);
       }

@@ -8,7 +8,7 @@ import "../../styles/components/citas/citas-style.css";
 import "moment/locale/es";
 import { CalendarEvent } from "./CalendarEvent";
 import { NewCita } from "./NewCita";
-import { eventClearActiveEvent, eventSetActive } from "../../actions/events";
+import { eventClearActiveEvent, eventSetActive, setEvents } from "../../actions/events";
 import { useDispatch, useSelector } from "react-redux";
 // import { Modal } from "../ui/Modal";
 import { CalendarModal } from "./CalendarModal";
@@ -18,7 +18,7 @@ import { getCitas } from "../../helpers/api";
 import { setCitas } from "../../actions/citas";
 import { useEffect } from "react";
 import { useCalendarStore } from "../../hooks/useCalendarStore";
-import { Reloj } from "./Reloj";
+// import { Reloj } from "./Reloj";
 import { DeleteEventFab } from "./DeleteEventFab";
 
 
@@ -36,8 +36,9 @@ export const CitasScreen = () => {
   
 
     // const {events , activeEvent} = useSelector( state => state.calendar );
-    const {events, setActiveEvent} = useCalendarStore();
-    const {data:citas,current_page,per_page,total} = useSelector((state) => state.allCitas.citas);
+    const {events, setActiveEvent, startLoadingEvents} = useCalendarStore();
+
+    // const {data:citas,current_page,per_page,total} = useSelector((state) => state.allCitas.citas);
 
     const {openCitaModal} =useUiStore()
 
@@ -45,16 +46,39 @@ export const CitasScreen = () => {
   const dispatch = useDispatch();
 
 
-  useEffect(() => {
-    // Aquí debe venir de la api
-    getCitas(`citas/tenant/1`)
-                .then(citas => {
-                  dispatch(setCitas(citas))
-                }).catch(error => {
-                  console.log(error)
-                })
+  // useEffect(() => {
+  //   // Aquí debe venir de la api
+  //   getCitas(`citas/tenant/1`)
+  //               .then(citas => {
+  //                 dispatch(setCitas(citas))
+  //               }).catch(error => {
+  //                 console.log(error)
+  //               })
                
-  } ,[]);
+  // } ,[]);
+
+  // useEffect(() => {
+  //   // Aquí debe venir de la api
+  //   try {
+  //     getCitas(`citas/tenant/1`)
+  //               .then(citas => {
+  //                 dispatch(setEvents(citas))
+  //               }).catch(error => {
+  //                 console.log(error)
+  //               })
+      
+  //   } catch (error) {
+  //     console.log("Error al cargar");
+  //     console.log(error);
+  //   }
+    
+               
+  // } ,[]);
+
+  useEffect(() => {
+    startLoadingEvents()
+  }, [])
+  
   
     const [lastView, setLastView] = useState(
         localStorage.getItem("lastView") || "month"
@@ -67,6 +91,7 @@ export const CitasScreen = () => {
 
   const onSelectSlot = (e) => {
     // console.log(e);
+    console.log("Fecha de la base de datos:", events[1].end);
     dispatch(eventClearActiveEvent());
   }
 
@@ -110,7 +135,7 @@ export const CitasScreen = () => {
               <NewCita />
             </div>
             <div className="col-7">
-            <Reloj />
+            {/* <Reloj /> */}
 
             </div>
             

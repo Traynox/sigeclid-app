@@ -65,7 +65,9 @@ export const CalendarModal = () => {
   };
 
   const onSubmit = async (event) => {
-    console.log(moment().format());
+    console.log("Este es el start",formValues.start.toString());
+    console.log("Este es el Normal",formValues.start);
+    // console.log("Este es el end",formValues.end);
     event.preventDefault();
     const difference = differenceInSeconds(formValues.end, formValues.start);
 

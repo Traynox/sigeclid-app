@@ -8,7 +8,7 @@ const initialState = {
         per_page:5,
         total:0
     },
-    active: {},
+    activeEvent: null,
    
 }
 

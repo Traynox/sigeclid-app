@@ -23,7 +23,7 @@ export const getCitas = async(categoria) => {
 
 
      const resp = await fetch(url(categoria));
-     const {data} = await resp.json();
+     const data = await resp.json();
      return data;
 
   

@@ -4,27 +4,83 @@ import { types } from '../types/types';
 
 const initialState = {
 
+    cargandoEvents: true,
+
     events:[
-        {
-            _id: new Date().getTime(),
-            id_paciente: '2',
-            id_empleado: '2',
-            start: new Date(),
-            end: addHours(new Date(), 2),
-            id_tratamiento: '1',
-            comentario: 'x comentario',
-            id_tenant: '1'
-            // user : {
-            //   _id: '123',
-            //   name: 'Carlos',
-            // }
-          }
+        
+        // {
+        //        data: [],
+
+        // }
+          
+
+        //   {
+        //     _id: new Date().getTime(),
+        //     id_paciente: '2',
+        //     id_empleado: '2',
+        //     start: new Date(),
+        //     end: addHours(new Date(), 1),
+        //     id_tratamiento: '1',
+        //     comentario: 'x comentario',
+        //     id_tenant: '1'
+        //     // user : {
+        //     //   _id: '123',
+        //     //   name: 'Carlos',
+        //     // }
+        //   },
+        //   {
+        //     _id: new Date().getTime(),
+        //     id_paciente: '2',
+        //     id_empleado: '2',
+        //     start: new Date(),
+        //     end: addHours(new Date(), 1),
+        //     id_tratamiento: '1',
+        //     comentario: 'x comentario',
+        //     id_tenant: '1'
+        //     // user : {
+        //     //   _id: '123',
+        //     //   name: 'Carlos',
+        //     // }
+        //   },
+        //   {
+        //     _id: new Date().getTime(),
+        //     id_paciente: '2',
+        //     id_empleado: '2',
+        //     start: new Date(),
+        //     end: addHours(new Date(), 1),
+        //     id_tratamiento: '1',
+        //     comentario: 'x comentario',
+        //     id_tenant: '1'
+        //     // user : {
+        //     //   _id: '123',
+        //     //   name: 'Carlos',
+        //     // }
+        //   },
+        
     ],
     activeEvent: null
 };
 
 export const calendarReducer = (state = initialState, action) => {
     switch (action.type) {
+
+        case types.setEvents:
+            
+            return {
+                ...state,
+                events: action.payload
+            }
+
+            case types.loadEvents:
+            
+            return {
+                ...state,
+                cargandoEvents:false,
+                events:action.payload
+             
+
+
+            }
 
         case types.eventSetActive:
             return {
