@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useMemo, useRef, useState } from 'react'
 import { useSelector } from "react-redux";
 import { useForm } from "../../hooks/useForm";
 import { useDispatch } from 'react-redux';
@@ -13,7 +13,6 @@ export const FormEmpleado = () => {
   const [formValues, handleInputChange, reset] = useForm(empleado);
   const { nombre, cedula, telefono, direccion, ocupacion } = formValues;
   const activeEmpleadoId = useRef(empleado.id_empleado);
-
 
   useEffect(() => {
 
@@ -30,9 +29,13 @@ export const FormEmpleado = () => {
 
   }, [formValues, dispatch]);
 
+
+
+
   const storeEmpleado = async (e) => {
     e.preventDefault();
     dispatch(store(empleado));
+    
     reset({
       nombre: '',
       cedula: '',
@@ -40,6 +43,7 @@ export const FormEmpleado = () => {
       direccion: '',
       ocupacion: ''
     });
+
   }
 
   const updateEmpleado = async (e) => {
@@ -55,6 +59,16 @@ export const FormEmpleado = () => {
 
   }
 
+  const limpiar = () =>{
+    reset({
+      nombre: '',
+      cedula: '',
+      telefono: '',
+      direccion: '',
+      ocupacion: ''
+    });
+  }
+
 
   return (
     <>
@@ -66,7 +80,7 @@ export const FormEmpleado = () => {
               className="input__empleado nombre"
               type="text"
               name="nombre"
-              value={nombre}
+              value={nombre || ''}
               onChange={handleInputChange}
               autoComplete="off"
               required
@@ -79,7 +93,7 @@ export const FormEmpleado = () => {
               className="input__empleado cedula"
               type="text"
               name="cedula"
-              value={cedula}
+              value={cedula || ''}
               onChange={handleInputChange}
               autoComplete="off"
               required
@@ -92,7 +106,7 @@ export const FormEmpleado = () => {
               className="input__empleado telefono"
               type="text"
               name="telefono"
-              value={telefono}
+              value={telefono || ''}
               onChange={handleInputChange}
               autoComplete="off"
               required
@@ -105,7 +119,7 @@ export const FormEmpleado = () => {
               className="input__empleado direccion"
               type="text"
               name="direccion"
-              value={direccion}
+              value={direccion || ''}
               onChange={handleInputChange}
               autoComplete="off"
               required
@@ -118,7 +132,7 @@ export const FormEmpleado = () => {
               className="input__empleado ocupacion"
               type="text"
               name="ocupacion"
-              value={ocupacion}
+              value={ocupacion || ''}
               onChange={handleInputChange}
               autoComplete="off"
               required
@@ -151,6 +165,7 @@ export const FormEmpleado = () => {
                   type="button"
                   className="empleado__campo-8 empleado__boton"
                   data-dismiss="modal"
+                  onClick={limpiar}
                 >
                   Cerrar
                 </button>

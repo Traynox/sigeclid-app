@@ -1,8 +1,55 @@
-import React from "react";
-import Pagination from 'react-js-pagination'
-
+import React, { useEffect } from "react";
+import Pagination from "react-js-pagination";
+import { useDispatch, useSelector } from "react-redux";
+import { setPacientes } from "../../actions/pacientes";
+import { getDataPaginate } from "../../helpers/api";
+import { ItemCardPaciente } from "./ItemCardPaciente";
 
 export const CardsPacientes = () => {
+  const {data:pacientes,current_page,per_page,total} = useSelector((state) => state.allPacientes.pacientes);
+
+  const { search } = useSelector((state) => state.ui);
+  const {texto} =search;
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+
+    getDataPaginate('pacientes',6,search.texto,current_page,1)
+                .then(pacientes => {
+                 
+                  dispatch(setPacientes(pacientes))
+                }).catch(error => {
+                  console.log(error)
+                })
+               
+  } ,[]);
+
+  const handlePageChange = (pageNumber) => {
+  
+    getDataPaginate('pacientes',6,search.texto,pageNumber)
+                .then(pacientes => {
+                  // console.log('clientes', clientes)
+                  dispatch(setPacientes(pacientes))
+                }).catch(error => {
+                  console.log(error)
+                })
+}
+
+  //ESTE ES PARA UNA BUSQUEDA EN TIEMPO REAL SUPONGAMOS 
+  useEffect(() => {
+
+    getDataPaginate('pacientes',6,search.texto,current_page, 1)
+                .then(pacientes => {
+                  // console.log('clientes', clientes)
+                
+                  dispatch(setPacientes(pacientes))
+                }).catch(error => {
+                  console.log(error)
+                })
+                // console.log('getDataPaginate ')
+  } ,[texto,dispatch]);
+
   return (
     <>
       <section className="container pt-3 mb-3">
@@ -11,110 +58,29 @@ export const CardsPacientes = () => {
           <small>Whatever we do, we do with your end user in mind </small>
         </h2> */}
         <div className="row pt-5 mt-30">
-        <div className="col-lg-4 col-sm-6 pb-3">
-            <a className="card" href="#">
-              <div
-                className="mx-auto text-center"
-                style={{ width: 90, height: 90, marginTop: "-45px" }}
-              >
-                <i class="fa-solid fa-folder-open fa-3x head-icon"></i>
-              </div>
-              <div className="card-body d-flex justify-content-center text-center">
-                <h3 className="card-title pt-1">
-                  Jessy Roblero Obando 101890183
-                </h3>
-              </div>
-            </a>
-          </div>
-          <div className="col-lg-4 col-sm-6 pb-3">
-            <a className="card" href="#">
-              <div
-                className="mx-auto text-center"
-                style={{ width: 90, height: 90, marginTop: "-45px" }}
-              >
-                <i class="fa-solid fa-folder-open fa-3x head-icon"></i>
-              </div>
-              <div className="card-body d-flex justify-content-center text-center">
-                <h3 className="card-title pt-1">
-                  Jessy Roblero Obando 101890183
-                </h3>
-              </div>
-            </a>
-          </div>
-          <div className="col-lg-4 col-sm-6 pb-3">
-            <a className="card" href="#">
-              <div
-                className="mx-auto text-center"
-                style={{ width: 90, height: 90, marginTop: "-45px" }}
-              >
-                <i class="fa-solid fa-folder-open fa-3x head-icon"></i>
-              </div>
-              <div className="card-body d-flex justify-content-center text-center">
-                <h3 className="card-title pt-1">
-                  Jessy Roblero Obando 101890183
-                </h3>
-              </div>
-            </a>
-          </div>
-          <div className="col-lg-4 col-sm-6 pb-3">
-            <a className="card" href="#">
-              <div
-                className="mx-auto text-center"
-                style={{ width: 90, height: 90, marginTop: "-45px" }}
-              >
-                <i class="fa-solid fa-folder-open fa-3x head-icon"></i>
-              </div>
-              <div className="card-body d-flex justify-content-center text-center">
-                <h3 className="card-title pt-1">
-                  Jessy Roblero Obando 101890183
-                </h3>
-              </div>
-            </a>
-          </div>
-          <div className="col-lg-4 col-sm-6 pb-3">
-            <a className="card" href="#">
-              <div
-                className="mx-auto text-center"
-                style={{ width: 90, height: 90, marginTop: "-45px" }}
-              >
-                <i class="fa-solid fa-folder-open fa-3x head-icon"></i>
-              </div>
-              <div className="card-body d-flex justify-content-center text-center">
-                <h3 className="card-title pt-1">
-                  Jessy Roblero Obando 101890183
-                </h3>
-              </div>
-            </a>
-          </div>
-          <div className="col-lg-4 col-sm-6 pb-3">
-            <a className="card" href="#">
-              <div
-                className="mx-auto text-center"
-                style={{ width: 90, height: 90, marginTop: "-45px" }}
-              >
-                <i class="fa-solid fa-folder-open fa-3x head-icon"></i>
-              </div>
-              <div className="card-body d-flex justify-content-center text-center">
-                <h3 className="card-title pt-1">
-                  Jessy Roblero Obando 101890183
-                </h3>
-              </div>
-            </a>
-          </div>
+      
+          {
+            pacientes.map((paciente=>
+              <ItemCardPaciente
+                key= {paciente.id_paciente}
+                {...paciente} />
+              ))
+          }
+
         </div>
         <div className="pagination justify-content-end">
-                    <Pagination
-                        // activePage={current_page}
-                        // itemsCountPerPage={parseInt(per_page)}
-                        totalItemsCount={5}
-                        // onChange={(pageNumber) => handlePageChange(pageNumber)}
-                        itemClass="page-item"
-                        linkClass="page-link"
-                        firstPageText="inicio"
-                        lastPageText="final"
-                        pageRangeDisplayed={4}
-                    />
-                </div>
+          <Pagination
+            activePage={current_page}
+            itemsCountPerPage={parseInt(per_page)}
+            totalItemsCount={6}
+            onChange={(pageNumber) => handlePageChange(pageNumber)}
+            itemClass="page-item"
+            linkClass="page-link"
+            firstPageText="inicio"
+            lastPageText="final"
+            pageRangeDisplayed={4}
+          />
+        </div>
       </section>
     </>
   );

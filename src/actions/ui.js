@@ -27,3 +27,12 @@ export const setMode = (mode) => {
     }
   
   }
+
+  export const modalAction = (modal) => {
+
+    return {
+      type: types.modalCita,
+      payload: modal,
+    }
+  
+  }

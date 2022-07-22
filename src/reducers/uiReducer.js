@@ -6,6 +6,9 @@ const initialState = {
         nombre: '',
         vista: '',
     },
+    citaModal:{
+        isDateModalOpen: false
+    },
     search: {
         texto: ''
     },
@@ -25,6 +28,15 @@ export const uiReducer = (state = initialState, action) => {
                 ...state,
                 modal: action.payload
             };
+
+            case types.modalCita:
+            return {
+                ...state,
+                citaModal: action.payload
+            };
+           
+           
+
         case types.modalUpdate:
 
             return {

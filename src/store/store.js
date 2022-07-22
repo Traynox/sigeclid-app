@@ -1,5 +1,7 @@
 import { createStore,combineReducers,applyMiddleware,compose } from 'redux'
 import thunk from 'redux-thunk'
+import { calendarReducer } from '../reducers/calendarReducer';
+import { citasReducer } from '../reducers/citasReducer';
 import { empleadosReducer } from '../reducers/empleadosReducer';
 import { pacientesReducer } from '../reducers/pacientesReducer'
 import { tratamientosReducer } from '../reducers/tratamientosReducer'
@@ -9,11 +11,13 @@ import { uiReducer } from '../reducers/uiReducer';
 
 const composeEnhancers = (typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
 const reducers = combineReducers({
-
+    allCitas: citasReducer,
     allPacientes: pacientesReducer,
     allEmpleados: empleadosReducer,
     allTratamientos: tratamientosReducer,
     ui: uiReducer,
+    calendar: calendarReducer,
+
 })
 
 

@@ -6,6 +6,7 @@ export const getDataPaginate = async(categoria, paginate = 5, buscar = '', pageN
     case 'empleados':
     case 'pacientes':
     case 'tratamientos':
+    case 'citas':
       const resp = await fetch(urlPaginate(categoria, paginate, buscar, pageNumber, tenant));
       const {data} = await resp.json();
       return data;
@@ -16,6 +17,19 @@ export const getDataPaginate = async(categoria, paginate = 5, buscar = '', pageN
 
  
 }
+
+
+export const getCitas = async(categoria) => {
+
+
+     const resp = await fetch(url(categoria));
+     const {data} = await resp.json();
+     return data;
+
+  
+ }
+
+
  
 export const urlPaginate=(categoria, paginate, buscar, pageNumber, tenant)=>{
   // console.log('urlPaginate',categoria, paginate, buscar, pageNumber)

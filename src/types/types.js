@@ -21,8 +21,20 @@ export const types = {
     tratamientoShow: '[tratamientos] tratamientoShow',
     tratamientoDestroy: '[tratamientos] tratamientoDestroy',
 
+    
     modalStore: '[ui] modalStore',
     modalUpdate: '[ui] modalUpdate',
     setSearch: '[ui] setSearch',
     setMode: '[ui] setMode',
+    
+    
+    modalCita: '[ui] modalCita',
+
+    setCitas: '[citas] setCitas',
+
+    eventSetActive: '[event] Set active',
+    eventAddNew: '[event] Add new',
+    eventClearActiveEvent: '[event] Clear active',
+    eventUpdated: '[event] Event updated',
+    eventDeleted: '[event] Event deleted',
 }

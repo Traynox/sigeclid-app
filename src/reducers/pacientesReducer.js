@@ -4,7 +4,7 @@ const initialState = {
     pacientes: {
         data: [],
         current_page:1,
-        per_page:5,
+        per_page:6,
         total:0
     },
     active: {},
@@ -19,7 +19,7 @@ export const pacientesReducer = (state = initialState, action) => {
           
             return {
                 ...state,
-                paciente: action.payload
+                pacientes: action.payload
             }
 
             case types.pacienteSelected:
