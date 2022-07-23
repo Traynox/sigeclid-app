@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { eventAddNew, eventDeleted, eventSetActive, eventUpdated, onLoadEvents, store } from "../actions/events";
+import { destroy, eventAddNew, eventClearActiveEvent, eventDeleted, eventSetActive, eventUpdated, onLoadEvents, store } from "../actions/events";
 import { getCitas } from "../helpers/api";
 import { ConvierteDateEvent } from "./ConvierteDateEvent";
 
@@ -24,6 +24,10 @@ export const useCalendarStore = ()=>{
         dispatch(eventSetActive(calendarEvent))
     }
 
+    const destruir = ()=>{
+        dispatch(destroy(activeEvent.id_cita))
+        dispatch(eventClearActiveEvent());
+    }
     
 
     const activeDelete = () => {
@@ -85,6 +89,7 @@ export const useCalendarStore = ()=>{
         setActiveEvent,
         startSavingEvent,
         activeDelete,
+        destruir,
 
     }
 }

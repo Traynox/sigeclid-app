@@ -63,6 +63,17 @@ export const store = (cita) => {
   
   }
 
+  export const destroy = (id) => {
+
+    return async (dispatch, getState) => {
+        await axios.delete(`${url('citas')}/${id}`);
+      
+        const {data} = await getCitas(`citas/tenant/1`);
+        const events = ConvierteDateEvent({data}.data)      
+        dispatch(onLoadEvents(events));
+    }
+  }
+
 export const eventSetActive = (event) => ({
     type: types.eventSetActive,
     payload: event
