@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 const GestionPaciente = () => {
     const { id_paciente, cedula, nombre, apellido_uno, apellido_dos, sexo, telefono, edad, correo, direccion } = useSelector((state) => state.allPacientes.active);
     const events = useSelector((state) => state.calendar.events);
-    console.log(events);
     return (
         <div className="paciente__new">
             <div className="row">
@@ -159,18 +158,19 @@ const GestionPaciente = () => {
                         </div>
                         <div class="card-body">
                             <ul class="list-group">
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                    Ortodoncia
-                                    <span class="badge badge-primary badge-pill">Finalizado</span>
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                    Periodoncia
-                                    <span class="badge badge-primary badge-pill">Finalizado</span>
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                    Odontopediatria
-                                    <span class="badge badge-primary badge-pill">Finalizado</span>
-                                </li>
+                                {events.length === 0 ? 'No hay registro de citas' :
+
+                                    events.map(cita => {
+                                        const { start, end, paciente } = cita;
+                                        if (paciente.id_paciente === id_paciente) {
+                                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                Dia {start}
+                                                <span class="badge badge-primary badge-pill">Finalizado</span>
+                                            </li>
+                                        }
+                                    })
+
+                                }
                             </ul>
                         </div>
                     </div>
@@ -184,16 +184,19 @@ const GestionPaciente = () => {
                         <div class="card-body">
                             <ul class="list-group">
 
-                                {events.map(cita => {
-                                    const { start, end, paciente } = cita;
-                                    if (paciente.id_paciente === id_paciente) {
-                                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                                            Dia {start}
-                                            <span class="badge badge-primary badge-pill">Finalizado</span>
-                                        </li>
-                                    }
-                                })}
+                                {events.length === 0 ? 'No hay registro de citas' :
 
+                                    events.map(cita => {
+                                        const { start, end, paciente } = cita;
+                                        if (paciente.id_paciente === id_paciente) {
+                                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                Dia {start}
+                                                <span class="badge badge-primary badge-pill">Finalizado</span>
+                                            </li>
+                                        }
+                                    })
+
+                                }
                                 {/* <li class="list-group-item d-flex justify-content-between align-items-center">
                                     Periodoncia
                                     <span class="badge badge-primary badge-pill">Finalizado</span>
