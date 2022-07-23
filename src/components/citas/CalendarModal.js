@@ -1,7 +1,8 @@
 import React, { useEffect, useMemo, useState } from "react";
 import Modal from "react-modal";
-// import styles from  "../../styles/components/citas/citas-style.css";
 import "../../styles/components/citas/citas-style.css";
+// import styles from  "../../styles/components/citas/citas-style.module.css";
+
 
 import { addHours, differenceInSeconds } from "date-fns";
 import ReactDatePicker, { registerLocale } from "react-datepicker";
@@ -11,6 +12,9 @@ import es from "date-fns/locale/es";
 import { useUiStore } from "../../hooks/useUiStore";
 import { useCalendarStore } from "../../hooks/useCalendarStore";
 import moment from "moment";
+import { SearchPaciente } from "./SearchPaciente";
+import { SearchEmpleado } from "./SearchEmpleado";
+import { SearchTratamiento } from "./SearchTratamiento";
 
 registerLocale("es", es);
 
@@ -28,14 +32,17 @@ const customStyles = {
 Modal.setAppElement("#root");
 
 export const CalendarModal = () => {
+
+
+
   const { citaModal, closeCitaModal } = useUiStore();
 
-  const { activeEvent, startSavingEvent } = useCalendarStore();
+  const { activeEvent, startSavingEvent} = useCalendarStore();
 
   const initEvent = {
-    id_paciente: "2",
-    id_empleado: "2",
-    id_tratamiento: "1",
+    // id_paciente: id_paciente,
+    // id_empleado: id_empleado,
+    // id_tratamiento: id_tratamiento,
     comentario: "x comentario",
 
     start: new Date(),
@@ -65,9 +72,6 @@ export const CalendarModal = () => {
   };
 
   const onSubmit = async (event) => {
-    console.log("Este es el start",formValues.start.toString());
-    console.log("Este es el Normal",formValues.start);
-    // console.log("Este es el end",formValues.end);
     event.preventDefault();
     const difference = differenceInSeconds(formValues.end, formValues.start);
 
@@ -77,14 +81,8 @@ export const CalendarModal = () => {
       return;
     }
 
-    if (
-      formValues.id_tratamiento.length <= 0 ||
-      formValues.id_paciente.length <= 0 ||
-      formValues.id_empleado.length <= 0
-    )
-      return;
+ 
 
-    // console.log(formValues);
 
     await startSavingEvent(formValues);
     closeCitaModal();
@@ -100,8 +98,9 @@ export const CalendarModal = () => {
       isOpen={citaModal.isDateModalOpen}
       onRequestClose={onCloseModal}
       style={customStyles}
+      // className={styles.modal}
       className="modal"
-      overlayClassName="modal-fondo"
+      overlayClassName="modal_fondo"
       closeTimeoutMS={200}
     >
       <h4 className="d-flex justify-content-center"> Nueva Cita </h4>
@@ -110,8 +109,8 @@ export const CalendarModal = () => {
       <form className="container" onSubmit={onSubmit}>
         <div className="row">
           <div className="col-6">
-            <div className="form-group mb-2">
-              <label>Fecha y hora inicio</label>
+            <div className="form-group mb-2 ">
+              <label className="text-primary">Fecha y hora inicio</label>
               <ReactDatePicker
                 // showTimeSelect
                 dateFormat="MMMM d, yyyy / h:mm aa"
@@ -122,7 +121,7 @@ export const CalendarModal = () => {
                 value={formValues.start}
                 timeInputLabel="Hora:"
                 showTimeInput
-                isClearable
+                // isClearable
 
                 // minDate={formValues.start}
                 // locale={es}
@@ -131,7 +130,7 @@ export const CalendarModal = () => {
             </div>
 
             <div className="form-group mb-2">
-              <label>Fecha y hora fin</label>
+              <label className="text-primary">Fecha y hora fin</label>
 
               <ReactDatePicker
                 // showTimeSelect
@@ -151,23 +150,24 @@ export const CalendarModal = () => {
             </div>
 
             <hr />
-            <div className="form-group mb-2">
-              <label>Detalles de citas</label>
-              <input
+            <div className="form-group mb-2 border">
+              <label className="text-primary">Tratamiento y comentario</label>
+              {/* <input
                 type="text"
                 className={`form-control `}
                 placeholder="Tratamiento"
                 name="id_tratamiento"
                 autoComplete="off"
-                value={formValues.id_tratamiento}
+                value={id_tratamiento}
                 onChange={handledInputChange}
-              />
-              <small id="emailHelp" className="form-text text-muted">
+              /> */}
+              <SearchTratamiento />
+              {/* <small id="emailHelp" className="form-text text-muted">
                 Una descripción corta
-              </small>
+              </small> */}
             </div>
 
-            <div className="form-group mb-2">
+            <div className="form-group mb-2 ">
               <textarea
                 type="text"
                 className="form-control"
@@ -186,17 +186,18 @@ export const CalendarModal = () => {
             {/*
                 //* -------------------------------Paciente-------------------------
              */}
-            <div className="form-group mb-2">
-              <label>Paciente</label>
-              <input
+            <div className="form-group mb-2 border">
+              <label className="text-primary">Paciente</label>
+              {/* <input
                 type="text"
                 className={`form-control`}
                 placeholder="Paciente"
                 name="id_paciente"
                 autoComplete="off"
-                value={formValues.id_paciente}
+                value={id_paciente}
                 onChange={handledInputChange}
-              />
+                /> */}
+                <SearchPaciente/>
               {/* <small id="emailHelp" className="form-text text-muted">
                 Una descripción corta
               </small> */}
@@ -209,17 +210,18 @@ export const CalendarModal = () => {
             {/*
                 //* -------------------------------Empleado-------------------------
              */}
-            <div className="form-group mb-2">
-              <label>Empleado</label>
-              <input
+            <div className="form-group mb-2 border">
+              <label className="text-primary">Empleado</label>
+              {/* <input
                 type="text"
                 className={`form-control `}
                 placeholder="Empleado"
                 name="id_empleado"
                 autoComplete="off"
-                value={formValues.id_empleado}
+                value={id_empleado}
                 onChange={handledInputChange}
-              />
+              /> */}
+              <SearchEmpleado />
               {/* <small id="emailHelp" className="form-text text-muted">
                 Una descripción corta
               </small> */}

@@ -23,7 +23,7 @@ export const EmpleadosScreen = () => {
 
   return (
     <>
-      <Modal tipo="Agregar" nombre="empleado" />
+     
 
       <div className="d-flex justify-content-between ">
         <h1 className="m-4">Empleados</h1>
@@ -59,6 +59,8 @@ export const EmpleadosScreen = () => {
           </div>
         </div>
       </div>
+
+      <Modal tipo="Agregar" nombre="empleado" />
     </>
   );
 };

@@ -4,7 +4,7 @@ import { Calendar, momentLocalizer } from "react-big-calendar";
 import { messages } from "../../helpers/calendar-messages-es";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import "react-datepicker/dist/react-datepicker.css";
-import "../../styles/components/citas/citas-style.css";
+// import "../../styles/components/citas/citas-style.css";
 import { CalendarEvent } from "./CalendarEvent";
 import { NewCita } from "./NewCita";
 import { eventClearActiveEvent, eventSetActive, setEvents } from "../../actions/events";
@@ -17,8 +17,9 @@ import { getCitas } from "../../helpers/api";
 import { setCitas } from "../../actions/citas";
 import { useEffect } from "react";
 import { useCalendarStore } from "../../hooks/useCalendarStore";
-// import { Reloj } from "./Reloj";
+import { Reloj } from "./Reloj";
 import { DeleteEventFab } from "./DeleteEventFab";
+import { SearchBar } from "./SearchPaciente";
 
 
 
@@ -133,7 +134,8 @@ export const CitasScreen = () => {
               <NewCita />
             </div>
             <div className="col-7">
-            {/* <Reloj /> */}
+            
+            <Reloj />
 
             </div>
             
