@@ -1,4 +1,4 @@
-/* .ReactModalPortal > div{
+.ReactModalPortal > div{
     opacity: 0;
   }
   
@@ -38,7 +38,7 @@
     max-width: 900px;
     outline: none;
     padding: 10px;
-  } */
+  }
 
   
 
