@@ -5,7 +5,6 @@ import { messages } from "../../helpers/calendar-messages-es";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import "react-datepicker/dist/react-datepicker.css";
 import "../../styles/components/citas/citas-style.css";
-import "moment/locale/es";
 import { CalendarEvent } from "./CalendarEvent";
 import { NewCita } from "./NewCita";
 import { eventClearActiveEvent, eventSetActive, setEvents } from "../../actions/events";
@@ -27,7 +26,6 @@ import { DeleteEventFab } from "./DeleteEventFab";
 
 
 
-moment.locale("es");
 const localizer = momentLocalizer(moment); 
 // or globalizeLocalizer
 

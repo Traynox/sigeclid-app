@@ -5,7 +5,6 @@ import '../../styles/components/pacientes/pacientes.css';
 import { Modal } from '../ui/Modal';
 import { SearchBar } from '../ui/SearchBar';
 import { CardsPacientes } from './CardsPacientes';
-import TablaPaciente from './TablaPaciente';
 const PacientesScreen = () => {
   const dispatch = useDispatch();
   const setFormData = () => {

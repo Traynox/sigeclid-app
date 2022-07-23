@@ -2,19 +2,20 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { setPaciente } from "../../actions/pacientes";
 import { setModal } from "../../actions/ui";
+import { Link } from "react-router-dom";
 
 export const ItemCardPaciente = React.memo((paciente) => {
 
   const dispatch = useDispatch();
 
   const prueba = () => {
-    console.log(paciente.nombre);
+    console.log(paciente.nombre, paciente.id_paciente);
 
 
 
   };
 
-  
+
   const setFormData = () => {
 
     dispatch(setPaciente(paciente));
@@ -29,16 +30,17 @@ export const ItemCardPaciente = React.memo((paciente) => {
   const pacienteVer = () => {
 
     dispatch(setPaciente(paciente));
-    dispatch(
-      setModal({
-        tipo: "",
-        nombre: "pacienteVer",
-        vista: "Pacientes",
-      })
-    );
+    // dispatch(
+    //   setModal({
+    //     tipo: "",
+    //     nombre: "pacienteVer",
+    //     vista: "Pacientes",
+    //   })
+    // );
+
   };
 
-  
+
 
   return (
     <>
@@ -68,7 +70,7 @@ export const ItemCardPaciente = React.memo((paciente) => {
                 <a
                   data-toggle="modal"
                   data-target="#modalE"
-                   onClick={setFormData}
+                  onClick={setFormData}
                   // data-target="#exampleModalEdit{{ $item->id_articulo }}"
                   className="btn btn-md text-decorated-none dropdown-item"
                 >
@@ -78,17 +80,26 @@ export const ItemCardPaciente = React.memo((paciente) => {
               </li>
 
               <li>
-                <a
+                {/* <a
                   data-toggle="modal"
                   data-target="#modalE"
 
                   // data-target="#exampleModal{{ $item->id_articulo }}"
                   className="btn btn-md  text-decorated-none dropdown-item "
+                // onClick={pacienteVer}
+                >
+                  <i className="fas fa-eye mx-1"></i>
+                  Ver
+                </a> */}
+                <Link to={`/pacientes/${paciente.id_paciente}`}
+                  data-toggle="modal"
+                  data-target="#modalE"
+                  className="btn btn-md  text-decorated-none dropdown-item "
                   onClick={pacienteVer}
                 >
                   <i className="fas fa-eye mx-1"></i>
                   Ver
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
