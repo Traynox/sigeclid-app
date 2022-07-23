@@ -4,7 +4,7 @@ import { empleadosReducer } from '../reducers/empleadosReducer';
 import { pacientesReducer } from '../reducers/pacientesReducer'
 import { tratamientosReducer } from '../reducers/tratamientosReducer'
 import { configuracionReducer } from '../reducers/configuracionReducer'
-import { authReducer } from '../reducers/authReducer'
+import { authReducer } from '../reducers/authReducer';
 import { uiReducer } from '../reducers/uiReducer';
 
 

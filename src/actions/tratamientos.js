@@ -27,6 +27,7 @@ export const store = (tratamiento) => {
   return async (dispatch, getState) => {
 
     // const {id}= getState().auth;
+    const {id_tenant}= getState().auth.user;
     const {texto}=getState().ui.search;
     const {current_page}=getState().allTratamientos;
     
@@ -36,7 +37,7 @@ export const store = (tratamiento) => {
    
     await axios.post(`${url('tratamientos')}`, store);
                   
-    const tratamientos = await getDataPaginate('tratamientos',5, texto, current_page,1); //ultimo numero es el numero de tenant
+    const tratamientos = await getDataPaginate('tratamientos',5, texto, current_page,id_tenant); //ultimo numero es el numero de tenant
 
     dispatch(setTratamientos(tratamientos));
   }
@@ -48,6 +49,7 @@ export const update = (tratamiento) => {
   return async (dispatch, getState) => {
 
     // const {id}= getState().auth;
+    const {id_tenant}= getState().auth.user;
     const {texto}=getState().ui.search;
     const {current_page}=getState().allTratamientos;
 
@@ -58,7 +60,7 @@ export const update = (tratamiento) => {
 
     await axios.put(`${url('tratamientos')}/${tratamiento.id_tratamiento}`, update);
     // const clientes = await getAllData('clientes');
-    const tratamientos = await getDataPaginate('tratamientos',5, texto, current_page,1);
+    const tratamientos = await getDataPaginate('tratamientos',5, texto, current_page,id_tenant);
     dispatch(setTratamientos(tratamientos));
     
   }
@@ -70,10 +72,11 @@ export const destroy = (id) => {
   return async (dispatch, getState) => {
 
     const {texto}=getState().ui.search;
+    const {id_tenant}= getState().auth.user;
     const {current_page}=getState().allTratamientos;
     
     await axios.delete(`${url('tratamientos')}/${id}`);
-    const tratamientos = await getDataPaginate('tratamientos',5, texto, current_page,1);
+    const tratamientos = await getDataPaginate('tratamientos',5, texto, current_page,id_tenant);
     // const clientes = await getAllData('clientes');
     dispatch(setTratamientos(tratamientos));
   }

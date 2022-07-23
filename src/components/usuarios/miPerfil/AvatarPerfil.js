@@ -3,14 +3,15 @@ import { useSelector } from "react-redux";
 import { useDispatch } from 'react-redux';
 import { useForm } from "../../../hooks/useForm";
 import { url, getUrlImagen } from '../../../helpers/api'
-import { setMiPerfil } from '../../../actions/configuracion';
+import { setMiPerfil,setMiClinica } from '../../../actions/configuracion';
 import { getData } from '../../../helpers/api';
 import axios from 'axios'
 
 export const AvatarPerfil = () => {
 
     const dispatch = useDispatch();
-    const { miPerfil } = useSelector(state => state.configuracion);
+    const { miPerfil,miClinica } = useSelector(state => state.configuracion);
+    const { user} = useSelector(state => state.auth);
     const [formValues, handleInputChange,reset] = useForm({...miPerfil});
     const { name, email} = formValues;
     const [archivo, setArchivo] = useState('');
@@ -41,9 +42,9 @@ export const AvatarPerfil = () => {
         // }
         f.append("file", archivo)
 
-        const tenant = 1;
+      
 
-        axios.post(`${url('empresas/update/tenant')}/${tenant}`, f,
+        axios.post(`${url('empresas/update/tenant')}/${user.id_tenant}`, f,
             {
                 Headers: {
                     'Content-Type': 'multipart/form-data',
@@ -51,10 +52,10 @@ export const AvatarPerfil = () => {
                 },
             })
             .then(empresa => {
-                dispatch(setMiPerfil(empresa.data.data))
+                dispatch(setMiClinica(empresa.data.data))
             }).catch(error => {
                 console.log(error.response)
-                dispatch(setMiPerfil(error.response.data.data))
+                dispatch(setMiClinica(error.response.data.data))
             })
 
     }
@@ -62,15 +63,15 @@ export const AvatarPerfil = () => {
     return (
         <article className="card__profile">
             <header className="card__header">
-                <img src='dist/img/photo1.png' alt="pattern card" className="card__header-image" />
+                <img src={getUrlImagen(miClinica.imagen)} alt="pattern card" className="card__header-image" />
                 {/* <img src='dist/img/user2-160x160.jpg' alt="profile image" className="card__header-profile" /> */}
             </header>
             <section className="card__body">
                 <h5 className="card__text card__text--light">
-                    Nombre perfil
+                    {user.name}
                     {/* <span className="card__text card__text--light">26</span> */}
                 </h5>
-                <p className="card__text card__text--light">Rol user</p>
+                <p className="card__text card__text--light">{(user.id_rol==1)?'Administrador':'Asistente'}</p>
             </section>
             <footer className="card__footer">
                 <div className="card__stats">

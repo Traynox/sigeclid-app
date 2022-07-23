@@ -26,7 +26,7 @@ export const store = (empleado) => {
 
     return async (dispatch, getState) => {
   
-      // const {id}= getState().auth;
+      const {id_tenant}= getState().auth.user;
       const {texto}=getState().ui.search;
       const {current_page}=getState().allEmpleados;
       
@@ -37,7 +37,7 @@ export const store = (empleado) => {
       console.log(store);
       await axios.post(`${url('empleados')}`, store);
                     
-      const empleados = await getDataPaginate('empleados',5, texto, current_page, 1);
+      const empleados = await getDataPaginate('empleados',5, texto, current_page, id_tenant);
   
       dispatch(setEmpleados(empleados));
     }
@@ -49,6 +49,7 @@ export const store = (empleado) => {
     return async (dispatch, getState) => {
   
       // const {id}= getState().auth;
+      const {id_tenant}= getState().auth.user;
       const {texto}=getState().ui.search;
       const {current_page}=getState().allEmpleados;
   
@@ -56,7 +57,7 @@ export const store = (empleado) => {
       delete updateClient.id_empleado;
       await axios.put(`${url('empleados')}/${empleado.id_empleado}`, updateClient);
       // const clientes = await getAllData('clientes');
-      const empleados = await getDataPaginate('empleados',5, texto, current_page,1);
+      const empleados = await getDataPaginate('empleados',5, texto, current_page,id_tenant);
       dispatch(setEmpleados(empleados));
       
     }
@@ -67,11 +68,12 @@ export const store = (empleado) => {
 
     return async (dispatch, getState) => {
   
+      const {id_tenant}= getState().auth.user;
       const {texto}=getState().ui.search;
       const {current_page}=getState().allEmpleados;
       
       await axios.delete(`${url('empleados')}/${id}`);
-      const empleados = await getDataPaginate('empleados',5, texto, current_page,1);
+      const empleados = await getDataPaginate('empleados',5, texto, current_page,id_tenant);
       // const clientes = await getAllData('clientes');
       dispatch(setEmpleados(empleados));
       
