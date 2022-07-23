@@ -1,17 +1,31 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from 'react-redux';
+import {useNavigate } from "react-router-dom";
+import { endLogin } from "../actions/login";
 // import './styles/components/sidebar/sidebar-style.css';
 import '../styles/components/sidebar/sidebar-style.css';
 
 
 export const Menu = () => {
+
+  const navigate=useNavigate();
+  const dispatch=useDispatch();
+
+const {id_plan} =useSelector(state=>state.auth.user);
+
+  const logout=()=>{
+    dispatch(endLogin({name:'',email:'',logged:false}));
+    navigate('/login',{replace:true});
+  }
+
   return (
     <aside className="main-sidebar sidebar-dark-primary elevation-4">
       {/* Brand Logo */}
-      <a href="index3.html" className="brand-link">
+      <a href="" className="brand-link">
         <img
           src="dist/img/logo_1.png"
-          alt="null"
+          alt="logo_empresa"
           // className="brand-image img-circle elevation-3"
           // style={{ opacity: ".8" }}
         />
@@ -132,6 +146,23 @@ export const Menu = () => {
                 <i className="nav-icon fa-solid fa-credit-card" />
                 <p>Pagos</p>
               </Link>
+            </li>
+            {
+              (id_plan==2)?<li className="nav-item">
+              <Link to="/reportes" className="nav-link">
+                {/* <i className="nav-icon far fa-image" /> */}
+                <i class="nav-icon fa-solid fa-bookmark"></i>
+              
+                <p>Reportes</p>
+              </Link>
+            </li>:''
+            }
+            <li className="nav-item">
+              <a  className="nav-link" onClick={logout}>
+                {/* <i className="nav-icon far fa-image" /> */}
+                <i className="nav-icon fa-solid fa-power-off"></i>
+                <p>Salir</p>
+              </a>
             </li>
           </ul>
         </nav>

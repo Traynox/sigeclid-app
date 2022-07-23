@@ -2,7 +2,9 @@ export const types = {
 
     login: '[auth] Login',
     logout: '[auth] Logout',
-
+    setAuth: '[auth] setAuth',
+    setLogged:'[auth] setLogged',
+    
     setPacientes: '[clientes] setClientes',
     pacienteSelected: '[clientes] clienteSelected',
     pacienteUpdate: '[clientes] clienteUpdate',
@@ -22,6 +24,10 @@ export const types = {
     tratamientoDestroy: '[tratamientos] tratamientoDestroy',
 
     
+    setMiPerfil: '[configuracion] setMiPerfil',
+    setMiClinica: '[configuracion] setMiClinica',
+    setMiActive: '[configuracion] setMiActive',
+
     modalStore: '[ui] modalStore',
     modalUpdate: '[ui] modalUpdate',
     setSearch: '[ui] setSearch',

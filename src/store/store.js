@@ -5,6 +5,8 @@ import { citasReducer } from '../reducers/citasReducer';
 import { empleadosReducer } from '../reducers/empleadosReducer';
 import { pacientesReducer } from '../reducers/pacientesReducer'
 import { tratamientosReducer } from '../reducers/tratamientosReducer'
+import { configuracionReducer } from '../reducers/configuracionReducer'
+import { authReducer } from '../reducers/authReducer'
 import { uiReducer } from '../reducers/uiReducer';
 
 
@@ -15,6 +17,7 @@ const reducers = combineReducers({
     allPacientes: pacientesReducer,
     allEmpleados: empleadosReducer,
     allTratamientos: tratamientosReducer,
+    configuracion: configuracionReducer,
     ui: uiReducer,
     calendar: calendarReducer,
 
