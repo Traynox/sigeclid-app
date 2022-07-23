@@ -1,24 +1,98 @@
-import React from 'react'
+import React, { useEffect,useState } from 'react'
+import { useSelector } from "react-redux";
+import { useDispatch } from 'react-redux';
+import { url,getUrlImagen } from '../../../helpers/api'
+import { setMiClinica } from '../../../actions/configuracion';
+import { getData } from '../../../helpers/api';
+import axios from 'axios'
 
 export const AvatarForm = () => {
+
+    const { miClinica } = useSelector(state => state.configuracion);
+    
+    const { id_tenant } = useSelector(state => state.auth.user);
+    const dispatch = useDispatch();
+    const [archivo,setArchivo]=useState('');
+
+    const handleChange=file=>{
+        setArchivo(file[0]);
+    }
+ 
+    useEffect(() => {
+
+        axios.get(getData('empresas', id_tenant))
+            .then(empresa => {
+
+                dispatch(setMiClinica(empresa.data.data))
+            }).catch(error => {
+                console.log(error)
+            })
+          
+    }, []);
+
+    const update = async (e) => {
+        e.preventDefault();
+
+        const f=new FormData();
+        // for (let i = 0; i < archivos.length; i++) {
+        //     f.append("files", archivos[i]);
+            
+        // }
+        f.append("file",archivo)
+     
+        axios.post(`${url('empresas/update/tenant')}/${id_tenant}`,f,
+        {
+            Headers: {
+              'Access-Control-Allow-Origin':'*',
+              'Content-Type': 'multipart/form-data',
+             
+            },
+          })
+            .then(empresa => {
+                dispatch(setMiClinica(empresa.data.data))
+            }).catch(error => {
+                console.log(error.response)
+                dispatch(setMiClinica(error.response.data.data))
+            })
+
+    }
+
+
     return (
         <article className="card__profile">
             <header className="card__header">
-                <img src='dist/img/photo1.png' alt="pattern card" className="card__header-image" />
-                <img src='dist/img/user2-160x160.jpg' alt="profile image" className="card__header-profile" />
+                <img src={getUrlImagen(miClinica.imagen)} alt="pattern card" className="card__header-image" />
+                {/* <img src={getUrlImagen(miClinica.imagen)} alt="profile image" className="card__header-profile" /> */}
             </header>
             <section className="card__body">
                 <h5 className="card__text card__text--light">
-                   CLINICA DENTAL
+                    CLINICA DENTAL
                     {/* <span className="card__text card__text--light">26</span> */}
                 </h5>
                 <p className="card__text card__text--light">SIQUIRRES</p>
             </section>
             <footer className="card__footer">
-                <div className="card__stats">
-                    <button className=" btn btn-primary btn-md mt-2">Actualizar foto</button>
-                    <p className="card__text card__text--light--subtitulo">Solo se permite JPG, GIF o PNG. Maximo tamaño 800K</p>
-                </div>
+
+                <form className='form' onSubmit={update} >
+
+                    <div className="card__stats">
+
+                        <div className="input-group  mt-4">
+                            <div className="col-7">
+                                <input type="file" name="file" onChange={(e)=>handleChange(e.target.files)} className="custom-file-input" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" />
+                                <label className="custom-file-label" htmlFor="inputGroupFile04">Elegir imagen</label>
+                            </div>
+
+                            <div className="input-group-append">
+                                <button className="btn btn-outline-primary" type="submit" id="inputGroupFileAddon04">Subir imagen</button>
+                            </div>
+                        </div>
+
+                        {/* <button className=" btn btn-primary btn-md mt-2" type='submit'>Actualizar foto</button> */}
+                        <p className="card__text card__text--light--subtitulo">Solo se permite JPG, GIF o PNG. Maximo tamaño 800K</p>
+                    </div>
+                </form>
+
             </footer>
         </article>
 

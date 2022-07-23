@@ -10,8 +10,6 @@ import { AppRouter } from './routers/AppRouter';
 function Sigleclid() {
 
   
-
-
   return (
   <>
      <Provider store={store}>

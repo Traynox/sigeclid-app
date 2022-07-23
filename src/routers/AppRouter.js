@@ -1,11 +1,23 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import { Routes, Route, BrowserRouter  } from "react-router-dom";
-// import { LoginScreen } from '../components/ui/LoginScreen';
-
+import { setAuth,getUser } from '../actions/login';
+import { LoginScreen } from '../components/ui/LoginScreen';
+import { useDispatch } from 'react-redux';
 import { DashboardRoutes } from './DashboardRoutes';
 import { PrivateRoute } from './PrivateRoutes';
 import { PublicRoute } from './PublicRoutes';
+
 export const AppRouter = () => {
+
+  // const dispatch=useDispatch();
+
+   // useEffect(() => {
+
+   //   dispatch(setAuth({...getUser(),logged:!!getUser()}));
+
+   // }, []);
+
+
     return (
       <BrowserRouter >
           <Routes>
@@ -13,7 +25,7 @@ export const AppRouter = () => {
             {/* <Route path="/login" element={<LoginScreen />} /> */}
             <Route path="/login" element={
               <PublicRoute>
-               {/* <LoginScreen/> */}
+               <LoginScreen/>
               </PublicRoute>
             }
             

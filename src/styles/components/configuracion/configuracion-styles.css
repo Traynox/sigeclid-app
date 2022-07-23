@@ -71,6 +71,8 @@
     border-radius: 50%;
     border: 5px solid #fff;
     background-color: #fff;
+    max-height: 180px;
+   
   }
   
   .card__body {

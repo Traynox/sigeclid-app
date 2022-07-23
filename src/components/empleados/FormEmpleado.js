@@ -3,7 +3,8 @@ import { useSelector } from "react-redux";
 import { useForm } from "../../hooks/useForm";
 import { useDispatch } from 'react-redux';
 import { setEmpleado } from '../../actions/empleados';
-import { update, store } from '../../actions/empleados'
+import { update, store } from '../../actions/empleados';
+
 export const FormEmpleado = () => {
 
   const dispatch = useDispatch();
@@ -152,7 +153,6 @@ export const FormEmpleado = () => {
                   >
                     Guardar
                   </button>
-
 
                 ) : (
 
