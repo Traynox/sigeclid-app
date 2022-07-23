@@ -25,7 +25,7 @@ export const ItemEmpleado = React.memo((empleado) => {
   };
   return (
     <>
-         <tr>
+        <tr>
         <td>{empleado.nombre}</td>
         <td>{empleado.cedula}</td>
         <td>{empleado.telefono}</td>
