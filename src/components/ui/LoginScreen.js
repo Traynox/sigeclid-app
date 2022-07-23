@@ -1,6 +1,35 @@
-import React from 'react'
+import React,{useEffect} from 'react'
+import { useDispatch } from 'react-redux';
+import { useSelector } from "react-redux";
+import {useNavigate } from "react-router-dom";
+import { useForm } from "../../hooks/useForm";
+import { startLogin,setLogin, setLogged } from '../../actions/login'
+import { setAuth,getUser } from "../../actions/login";
+
 // import '../../styles/CSSTheme/pages/auth.css';
 export const LoginScreen = () => {
+
+    const dispatch = useDispatch();
+    const navigate=useNavigate();
+   
+    const {login } = useSelector(state => state.auth);
+
+    const [formValues, handleInputChange, reset] = useForm({ ...login });
+    const { email, password } = formValues;
+
+
+    useEffect(() => {
+
+        dispatch(setLogin({ ...formValues }));
+
+    }, [formValues, dispatch]);
+
+    const logged=async (e)=>{
+        e.preventDefault();
+        dispatch(startLogin(login));
+       
+        navigate('/citas',{replace:true});
+        }
   return (
  
     <div id='auth'>
@@ -14,28 +43,23 @@ export const LoginScreen = () => {
                 <h1 className="auth-title">Log in.</h1>
                 <p className="auth-subtitle mb-5">Log in with your data that you entered during registration.</p>
 
-                <form action="index.html">
+                <form  onSubmit={logged}>
                     <div className="form-group position-relative has-icon-left mb-4">
-                        <input type="text" className="form-control form-control-xl" placeholder="Username"/>
+                        <input type="text" name="email" value={email} onChange={handleInputChange} className="form-control form-control-xl" placeholder="Email"/>
                         <div className="form-control-icon">
                             {/* <i className="bi bi-person"></i> */}
-                            <i class='bx bx-user'></i>
+                          
                         </div>
                     </div>
                     <div className="form-group position-relative has-icon-left mb-4">
-                        <input type="password" className="form-control form-control-xl" placeholder="Password"/>
+                        <input type="password" name="password" value={password} onChange={handleInputChange} className="form-control form-control-xl" placeholder="Password"/>
                         <div className="form-control-icon">
                             {/* <i className="bi bi-shield-lock"></i> */}
-                            <i class='bx bxs-key'></i>
+                          
                         </div>
                     </div>
-                    <div className="form-check form-check-lg d-flex align-items-end">
-                        <input className="form-check-input me-2" type="checkbox" value="" id="flexCheckDefault"/>
-                        <label className="form-check-label text-gray-600" for="flexCheckDefault">
-                            Keep me logged in
-                        </label>
-                    </div>
-                    <button className="btn btn-primary btn-block btn-lg shadow-lg mt-5">Log in</button>
+                    
+                    <button type='submit' className="btn btn-primary btn-block btn-lg shadow-lg mt-5">Log in</button>
                 </form>
                 <div className="text-center mt-5 text-lg fs-4">
                     <p className="text-gray-600">Don't have an account? <a href="auth-register.html"

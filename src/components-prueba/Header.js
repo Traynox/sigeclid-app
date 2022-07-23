@@ -1,6 +1,9 @@
+import userEvent from '@testing-library/user-event'
 import React from 'react'
-
+import { useSelector } from "react-redux";
 export const Header = () => {
+
+  const { user } = useSelector(state => state.auth);
   return (
   <nav className="main-header navbar navbar-expand navbar-white navbar-light">
   {/* Left navbar links */}
@@ -18,7 +21,10 @@ export const Header = () => {
   {/* Right navbar links */}
   <ul className="navbar-nav ml-auto">
     {/* Navbar Search */}
-  
+    <li className="nav-item d-none d-sm-inline-block">
+      <a className="nav-link">{user?.name}</a>
+    </li>
+   
     {/* Messages Dropdown Menu */}
     <li className="nav-item dropdown">
       <a className="nav-link" data-toggle="dropdown" href="#">

@@ -14,7 +14,6 @@ export const getDataPaginate = async(categoria, paginate = 5, buscar = '', pageN
       break;
   }
 
- 
 }
  
 export const urlPaginate=(categoria, paginate, buscar, pageNumber, tenant)=>{
@@ -30,4 +29,18 @@ export const url=(categoria)=>{
   return `http://127.0.0.1:8000/api/${categoria}`;
 }
 
+export const getUrlImagen=(categoria)=>{
+
+  return `http://127.0.0.1:8000${categoria}`;
+}
+
+
+export const getData=(categoria,id_tenant)=>{
+  
+  if(id_tenant==''){
+  return `${url(categoria)}`;
+}
+    return `${url(categoria)}/${id_tenant}`;
+
+}
     

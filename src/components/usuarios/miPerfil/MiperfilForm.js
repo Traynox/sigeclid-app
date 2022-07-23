@@ -6,7 +6,7 @@ export const MiperfilForm = () => {
     <div className="card-header">
         <h4 className="card-title">Editar Información</h4>
         <p className='card-text'>
-            La información de tu clinica es importante, dale un toque personal a tu negocio.
+            La información de tu perfil es necesaria, dale un toque personal a tu perfil.
         </p>
     </div>
     <div className="card-content">
