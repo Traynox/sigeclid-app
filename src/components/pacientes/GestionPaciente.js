@@ -1,25 +1,23 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { useCalendarStore } from '../../hooks/useCalendarStore';
 
 const GestionPaciente = () => {
     const { id_paciente, cedula, nombre, apellido_uno, apellido_dos, sexo, telefono, edad, correo, direccion } = useSelector((state) => state.allPacientes.active);
     const events = useSelector((state) => state.calendar.events);
+
+    const {startLoadingEvents} = useCalendarStore()
+
+    useEffect(() => {
+        startLoadingEvents()
+      }, [])
+
+      console.log(events);
     return (
         <div className="paciente__new">
             <div className="row">
-                {/* <div className="d-flex justify-content-end "> */}
-                {/* <div className="col-md-6 d-flex justify-content-center ">
-                            {modal.tipo === "Agregar" ? (
-                                <button type="submit" className="paciente__boton campo__11">
-                                    Guardar
-                                </button>
-                            ) : (
-                                <button type="submit" className="paciente__boton campo__11">
-                                    Actualizar
-                                </button>
-                            )}
-                        </div> */}
+              
                 <div className="col-md-12 d-flex justify-content-end">
                     <Link
                         type="button"
@@ -152,58 +150,65 @@ const GestionPaciente = () => {
             </div>
             <div className="row">
                 <div className="col-6">
-                    <div class="card">
-                        <div class="card-header">
+                    <div className="card">
+                        <div className="card-header">
                             Tratamientos Realizados
                         </div>
-                        <div class="card-body">
-                            <ul class="list-group">
-                                {events.length === 0 ? 'No hay registro de citas' :
+                        <div className="card-body">
+                            <ul className="list-group">
+                                {/* {events.length === 0 ? 'No hay registro de citas' :
 
                                     events.map(cita => {
                                         const { start, end, paciente } = cita;
                                         if (paciente.id_paciente === id_paciente) {
-                                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                            <li className="list-group-item d-flex justify-content-between align-items-center">
                                                 Dia {start}
-                                                <span class="badge badge-primary badge-pill">Finalizado</span>
+                                                <span className="badge badge-primary badge-pill">Finalizado</span>
                                             </li>
                                         }
                                     })
 
-                                }
+                                } */}
                             </ul>
                         </div>
                     </div>
 
                 </div>
                 <div className="col-6">
-                    <div class="card">
-                        <div class="card-header">
+                    <div className="card">
+                        <div className="card-header">
                             Historial de Citas
                         </div>
-                        <div class="card-body">
-                            <ul class="list-group">
+                        <div className="card-body">
+                            <ul className="list-group">
 
-                                {events.length === 0 ? 'No hay registro de citas' :
+                                {
+                                
+                                events.length === 0 ? 'No hay registro de citas' :
 
                                     events.map(cita => {
                                         const { start, end, paciente } = cita;
                                         if (paciente.id_paciente === id_paciente) {
-                                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                            console.log("Redux:", paciente.id_paciente);
+                                            console.log("objeto", id_paciente);
+
+                                            
+
+                                            <li className="list-group-item d-flex justify-content-between align-items-center">
                                                 Dia {start}
-                                                <span class="badge badge-primary badge-pill">Finalizado</span>
+                                                <span className="badge badge-primary badge-pill">Finalizado</span>
                                             </li>
                                         }
                                     })
 
                                 }
-                                {/* <li class="list-group-item d-flex justify-content-between align-items-center">
+                                {/* <li className="list-group-item d-flex justify-content-between align-items-center">
                                     Periodoncia
-                                    <span class="badge badge-primary badge-pill">Finalizado</span>
+                                    <span className="badge badge-primary badge-pill">Finalizado</span>
                                 </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <li className="list-group-item d-flex justify-content-between align-items-center">
                                     Odontopediatria
-                                    <span class="badge badge-primary badge-pill">Finalizado</span>
+                                    <span className="badge badge-primary badge-pill">Finalizado</span>
                                 </li> */}
                             </ul>
                         </div>
