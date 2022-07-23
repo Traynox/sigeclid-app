@@ -25,7 +25,7 @@ const {id_plan} =useSelector(state=>state.auth.user);
       <a href="" className="brand-link">
         <img
           src="dist/img/logo_1.png"
-          alt="null"
+          alt="logo_empresa"
           // className="brand-image img-circle elevation-3"
           // style={{ opacity: ".8" }}
         />

@@ -6,7 +6,7 @@ import { useForm } from "../../hooks/useForm";
 import { startLogin,setLogin, setLogged } from '../../actions/login'
 import { setAuth,getUser } from "../../actions/login";
 
-// import '../../styles/CSSTheme/pages/auth.css';
+import '../../styles/components/auth.css';
 export const LoginScreen = () => {
 
     const dispatch = useDispatch();
@@ -38,10 +38,10 @@ export const LoginScreen = () => {
         <div className="col-lg-5 col-12">
             <div id="auth-left">
                 <div className="auth-logo">
-                    <a href="index.html"><img src="" alt="Logo"/></a>
+                    {/* <a ><img src='dist/img/logo_1.png' alt="Logo"/></a> */}
                 </div>
-                <h1 className="auth-title">Log in.</h1>
-                <p className="auth-subtitle mb-5">Log in with your data that you entered during registration.</p>
+                <h1 className="auth-title">Inicio de sesión</h1>
+                <p className="auth-subtitle mb-5">Inicie sesión con los datos que ingresó durante el registro.</p>
 
                 <form  onSubmit={logged}>
                     <div className="form-group position-relative has-icon-left mb-4">
@@ -59,13 +59,12 @@ export const LoginScreen = () => {
                         </div>
                     </div>
                     
-                    <button type='submit' className="btn btn-primary btn-block btn-lg shadow-lg mt-5">Log in</button>
+                    <button type='submit' className="btn btn-primary btn-block btn-lg shadow-lg mt-5">Ingresar</button>
                 </form>
                 <div className="text-center mt-5 text-lg fs-4">
-                    <p className="text-gray-600">Don't have an account? <a href="auth-register.html"
-                            className="font-bold">Sign
-                            up</a>.</p>
-                    <p><a className="font-bold" href="auth-forgot-password.html">Forgot password?</a>.</p>
+                    <p className="text-gray-600">Todavía no tienes cuenta? <a href=""
+                            className="font-bold">Registrarse</a>.</p>
+                    {/* <p><a className="font-bold" href="auth-forgot-password.html">Forgot password?</a>.</p> */}
                 </div>
             </div>
         </div>
