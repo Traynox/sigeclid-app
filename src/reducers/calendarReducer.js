@@ -5,6 +5,9 @@ import { types } from '../types/types';
 const initialState = {
 
     cargandoEvents: true,
+    id_empleado: {},
+    id_paciente: {},
+    id_tratamiento: {},
 
     events:[
         
@@ -71,14 +74,33 @@ export const calendarReducer = (state = initialState, action) => {
                 events: action.payload
             }
 
+            case types.cambiaIdEmpleado:
+            
+            return {
+                ...state,
+                id_empleado: action.payload
+            }
+
+            case types.cambiaIdTratamiento:
+            
+            return {
+                ...state,
+                id_tratamiento: action.payload
+            }
+
+            case types.cambiaIdPaciente:
+            
+            return {
+                ...state,
+                id_paciente: action.payload
+            }
+
             case types.loadEvents:
             
             return {
                 ...state,
                 cargandoEvents:false,
                 events:action.payload
-             
-
 
             }
 

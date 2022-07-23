@@ -36,6 +36,9 @@ export const types = {
 
     loadEvents: '[events] loadEvents',
     eventAddNew: '[event] Add new',
+    cambiaIdEmpleado: '[event] empleado id',
+    cambiaIdPaciente: '[event] paciente id',
+    cambiaIdTratamiento: '[event] tratamiento id',
 
     eventSetActive: '[event] Set active',
     

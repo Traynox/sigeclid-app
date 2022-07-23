@@ -9,6 +9,8 @@ export const useCalendarStore = ()=>{
     const dispatch = useDispatch();
 
     const {events, activeEvent} = useSelector( state => state.calendar );
+    
+    const {id_empleado, id_paciente, id_tratamiento} = useSelector( state => state.calendar );
 
     // const {data:citas,current_page,per_page,total, activeEvent} = useSelector(state => state.allCitas.citas);
 
@@ -21,6 +23,8 @@ export const useCalendarStore = ()=>{
     const setActiveEvent = (calendarEvent) => {
         dispatch(eventSetActive(calendarEvent))
     }
+
+    
 
     const activeDelete = () => {
         dispatch(eventDeleted());
@@ -70,6 +74,9 @@ export const useCalendarStore = ()=>{
         //* propiedades 
         activeEvent,
         // citas,
+        id_empleado, 
+        id_paciente, 
+        id_tratamiento,
 
         events,
 
