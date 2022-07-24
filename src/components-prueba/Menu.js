@@ -46,30 +46,18 @@ export const Menu = () => {
             </li>
 
             <li className="nav-item">
-              <a className="nav-link">
+              <Link to="/pacientes" className="nav-link">
               <i className="nav-icon fa-solid fa-person-half-dress" />
                 <p>
                   Pacientes
-                  <i className="fas fa-angle-left right" />
+                  {/* <i className="fas fa-angle-left right" /> */}
                 </p>
+                </Link>
                 {/* <i className="nav-icon fas fa-tree" /> */}
-              </a>
-              <ul className="nav nav-treeview">
-                <li className="nav-item">
-              <Link to="/pacientes" className="nav-link">
-                    <i className="far fa-circle nav-icon" />
-                    <p>General</p>
-              </Link>
-               
-                </li>
-                <li className="nav-item">
-                  <a href="pages/UI/icons.html" className="nav-link">
-                    <i className="far fa-circle nav-icon" />
-                    <p>anything else :)</p>
-                  </a>
-                </li>
-              </ul>
+              
+              
             </li>
+
             <li className="nav-item">
               <Link className="nav-link" to="/tratamientos">
                 <i className="nav-icon fa-solid fa-syringe" />
@@ -127,11 +115,11 @@ export const Menu = () => {
             </li>
 
             <li className="nav-item">
-              <Link to="/pagos" className="nav-link">
+              <a  className="nav-link">
                 {/* <i className="nav-icon far fa-image" /> */}
-                <i className="nav-icon fa-solid fa-credit-card" />
-                <p>Pagos</p>
-              </Link>
+                <i className="nav-icon fa-solid fa-power-off"></i>
+                <p>Salir</p>
+              </a>
             </li>
           </ul>
         </nav>
