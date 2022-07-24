@@ -77,10 +77,11 @@
 } */
 
 .fab-danger{
-    bottom: 25px;
+    bottom: 10px;
     padding: 10px;
     position: fixed;
-    left: 25px;
+
+    left: 300px;
 }
   
 .tama{

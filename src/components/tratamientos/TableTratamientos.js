@@ -10,6 +10,8 @@ export const TableTratamientos = () => {
 
 
    const {data:tratamientos,current_page,per_page,total} = useSelector((state) => state.allTratamientos.tratamientos);
+   const {id_tenant} = useSelector( state => state.auth.user );
+
 
   const { search } = useSelector((state) => state.ui);
   const {texto} =search;
@@ -17,7 +19,7 @@ export const TableTratamientos = () => {
   const dispatch = useDispatch();
   useEffect(() => {
 
-    getDataPaginate('tratamientos',5,search.texto,current_page,1)
+    getDataPaginate('tratamientos',5,search.texto,current_page,id_tenant)
                 .then(tratamientos => {
                 
                   dispatch(setTratamientos(tratamientos))
@@ -29,7 +31,7 @@ export const TableTratamientos = () => {
 
   useEffect(() => {
 
-    getDataPaginate('tratamientos',5,search.texto,current_page, 1)
+    getDataPaginate('tratamientos',5,search.texto,current_page, id_tenant)
                 .then(tratamientos => {
                  
                   dispatch(setTratamientos(tratamientos))
@@ -42,7 +44,7 @@ export const TableTratamientos = () => {
 
   const handlePageChange = (pageNumber) => {
   
-    getDataPaginate('tratamientos',5,search.texto,pageNumber)
+    getDataPaginate('tratamientos',5,search.texto,pageNumber, id_tenant)
                 .then(tratamientos => {
                   // console.log('clientes', clientes)
                   dispatch(setTratamientos(tratamientos))

@@ -9,13 +9,15 @@ export const CardsPacientes = () => {
   const {data:pacientes,current_page,per_page,total} = useSelector((state) => state.allPacientes.pacientes);
 
   const { search } = useSelector((state) => state.ui);
+  const {id_tenant} = useSelector( state => state.auth.user );
+
   const {texto} =search;
 
   const dispatch = useDispatch();
 
   useEffect(() => {
 
-    getDataPaginate('pacientes',6,search.texto,current_page,1)
+    getDataPaginate('pacientes',6,search.texto,current_page,id_tenant)
                 .then(pacientes => {
                  
                   dispatch(setPacientes(pacientes))
@@ -27,7 +29,7 @@ export const CardsPacientes = () => {
 
   const handlePageChange = (pageNumber) => {
   
-    getDataPaginate('pacientes',6,search.texto,pageNumber)
+    getDataPaginate('pacientes',6,search.texto,pageNumber, id_tenant)
                 .then(pacientes => {
                   // console.log('clientes', clientes)
                   dispatch(setPacientes(pacientes))
@@ -39,7 +41,7 @@ export const CardsPacientes = () => {
   //ESTE ES PARA UNA BUSQUEDA EN TIEMPO REAL SUPONGAMOS 
   useEffect(() => {
 
-    getDataPaginate('pacientes',6,search.texto,current_page, 1)
+    getDataPaginate('pacientes',6,search.texto,current_page, id_tenant)
                 .then(pacientes => {
                   // console.log('clientes', clientes)
                 

@@ -20,6 +20,8 @@ const reducers = combineReducers({
     configuracion: configuracionReducer,
     ui: uiReducer,
     calendar: calendarReducer,
+    auth: authReducer,
+    
 
 })
 

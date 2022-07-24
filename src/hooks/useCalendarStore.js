@@ -9,6 +9,7 @@ export const useCalendarStore = ()=>{
     const dispatch = useDispatch();
 
     const {events, activeEvent} = useSelector( state => state.calendar );
+    const {id_tenant} = useSelector( state => state.auth.user );
     
     const {id_empleado, id_paciente, id_tratamiento} = useSelector( state => state.calendar );
 
@@ -50,7 +51,7 @@ export const useCalendarStore = ()=>{
     const startLoadingEvents = async()=>{
         try {
 
-          const {data} = await getCitas(`citas/tenant/1`);
+          const {data} = await getCitas(`citas/tenant/${id_tenant}`);
           const events = ConvierteDateEvent({data}.data)      
           dispatch(onLoadEvents(events));
         //   console.log({data}.data);
@@ -81,7 +82,7 @@ export const useCalendarStore = ()=>{
         id_empleado, 
         id_paciente, 
         id_tratamiento,
-
+        hasEventSelected: !!activeEvent,
         events,
 
         //* Metodos

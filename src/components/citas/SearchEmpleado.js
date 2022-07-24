@@ -13,6 +13,8 @@ export const SearchEmpleado = () => {
 
   const {id_empleado} = useSelector( state => state.calendar );
 
+  const {id_tenant} = useSelector( state => state.auth.user );
+
   
 
 
@@ -22,6 +24,7 @@ export const SearchEmpleado = () => {
 
     await axios
       .get("http://127.0.0.1:8000/api/empleados")
+      // .get("http://127.0.0.1:8000/api/empleados/filter/paginate/5/tenant/2")
       .then((response) => {
         // console.log("Este es el empleado",response.data.data);
         setEmpleados(response.data.data);

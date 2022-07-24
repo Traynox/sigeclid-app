@@ -37,12 +37,13 @@ export const store = (cita) => {
       try {
 
         const {id_tratamiento: id_t, id_empleado:id_e, id_paciente: id_p} = getState().calendar;
+        const tenant = getState().auth.user.id_tenant;
         //  const {id}= getState().auth;
     //   const {texto}=getState().ui.search;
     //   const {current_page}=getState().allEmpleados;
       
       const storeCita = { ...cita }
-      const store={...storeCita, id_tenant: 1, id_tratamiento: id_t.id_tratamiento, id_empleado: id_e.id_empleado, id_paciente: id_p.id_paciente};
+      const store={...storeCita, id_tenant: tenant, id_tratamiento: id_t.id_tratamiento, id_empleado: id_e.id_empleado, id_paciente: id_p.id_paciente};
        await axios.post(`${url('citas')}`, store).then(
         response =>{
             console.log(response);
@@ -51,7 +52,8 @@ export const store = (cita) => {
         console.log(error.response);
       });
                 
-      const {data} = await getCitas(`citas/tenant/1`);
+      
+      const {data} = await getCitas(`citas/tenant/${tenant}`);
       const events = ConvierteDateEvent({data}.data)      
       dispatch(onLoadEvents(events));
 
@@ -67,8 +69,8 @@ export const store = (cita) => {
 
     return async (dispatch, getState) => {
         await axios.delete(`${url('citas')}/${id}`);
-      
-        const {data} = await getCitas(`citas/tenant/1`);
+        const tenant = getState().auth.user.id_tenant;
+        const {data} = await getCitas(`citas/tenant/${tenant}`);
         const events = ConvierteDateEvent({data}.data)      
         dispatch(onLoadEvents(events));
     }

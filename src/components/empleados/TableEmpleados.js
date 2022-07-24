@@ -12,11 +12,13 @@ export const TableEmpleados = () => {
   const { search } = useSelector((state) => state.ui);
   const {texto} =search;
 
+  const {id_tenant} = useSelector( state => state.auth.user );
   const dispatch = useDispatch();
+  
 
   useEffect(() => {
 
-    getDataPaginate('empleados',5,search.texto,current_page,1)
+    getDataPaginate('empleados',5,search.texto,current_page,9)
                 .then(empleados => {
                  
                   dispatch(setEmpleados(empleados))
@@ -29,7 +31,7 @@ export const TableEmpleados = () => {
   //ESTE ES PARA UNA BUSQUEDA EN TIEMPO REAL SUPONGAMOS 
   useEffect(() => {
 
-    getDataPaginate('empleados',5,search.texto,current_page, 1)
+    getDataPaginate('empleados',5,search.texto,current_page, 9)
                 .then(empleados => {
                   // console.log('clientes', clientes)
                 
@@ -42,7 +44,7 @@ export const TableEmpleados = () => {
 
   const handlePageChange = (pageNumber) => {
   
-    getDataPaginate('empleados',5,search.texto,pageNumber)
+    getDataPaginate('empleados',5,search.texto,pageNumber, 9)
                 .then(empleados => {
                   // console.log('clientes', clientes)
                   dispatch(setEmpleados(empleados))
